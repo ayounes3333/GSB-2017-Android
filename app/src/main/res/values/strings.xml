@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GSB VC 2017</string>
+    <string name="splash_icon">Splash Icon</string>
+    <string name="project_name">GSB 2017</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">LogIn</string>
+    <string name="action_sign_in_short">Log In</string>
+    <string name="error_invalid_email">l adresse email address est invalid</string>
+    <string name="error_invalid_password">Mot de passe tres court</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Ce champ est obliguatoire</string>
+    <string name="permission_rationale">"Les autorisations de contacts sont nécessaires pour fournir des compléments d'email."</string>
+
+    //ajouter_client
+    <string name="ajouter_client_titre">Ajouter un client</string>
+    <string name="ajouter_client_nom">Nom</string>
+    <string name="ajouter_client_email">Email</string>
+    <string name="ajouter_client_mobile">Mobile</string>
+    <string name="ajouter_client_telephone">Tel</string>
+    <string name="ajouter_client_adresse">Adresse</string>
+    <string name="ajouter_client_titre_client">Titre:</string>
+</resources>
