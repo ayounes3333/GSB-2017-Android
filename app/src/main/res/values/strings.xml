@@ -23,4 +23,5 @@
     <string name="ajouter_client_telephone">Tel</string>
     <string name="ajouter_client_adresse">Adresse</string>
     <string name="ajouter_client_titre_client">Titre:</string>
+    <string name="ajouter">Ajouter</string>
 </resources>
