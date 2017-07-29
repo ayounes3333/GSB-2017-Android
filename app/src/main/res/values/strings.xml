@@ -24,4 +24,6 @@
     <string name="ajouter_client_adresse">Adresse</string>
     <string name="ajouter_client_titre_client">Titre:</string>
     <string name="ajouter">Ajouter</string>
+    <string name="branch_nom">Branch Nom</string>
+    <string name="ajouter_branch">Ajouter Branch</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zaita.aliyounes.gsbvc2017.AjouteClientActivity">
+    tools:context="com.zaita.aliyounes.gsbvc2017.ajoute_branch">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,13 +23,13 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/ajouter_client_titre"
+                android:text="@string/ajouter_branch"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInput_nom"
+                android:id="@+id/textInput_branch_nom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView_titre"
@@ -38,7 +38,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:hint="@string/ajouter_client_nom">
+                android:hint="Branch Nom">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -52,16 +52,16 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInput_Adresse"
+                android:id="@+id/textInput_Tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textInput_mobile"
+                android:layout_below="@+id/textInput_branch_nom"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:hint="@string/ajouter_client_adresse">
+                android:hint="Branch Tel">
 
                 <EditText
                     android:id="@+id/editText"
@@ -72,102 +72,34 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInput_branch_adr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textInput_Tel"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:hint="Branch Addresse">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInput_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textInput_telephone"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:hint="@string/ajouter_client_mobile">
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInput_telephone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textInput_email"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:hint="@string/ajouter_client_telephone">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
-
-            <Spinner
-                android:id="@+id/spinner_titre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textInput_nom"
-                android:layout_toRightOf="@+id/textView_titre_client"
-                android:layout_toEndOf="@id/textView_titre_client"
-                android:layout_marginEnd="32dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"/>
-
-            <TextView
-                android:id="@+id/textView_titre_client"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textInput_nom"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/ajouter_client_titre_client"
-                android:textSize="16sp"/>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInput_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/spinner_titre"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:hint="@string/ajouter_client_email">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:inputType="textEmailAddress" />
-            </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
     <Button
