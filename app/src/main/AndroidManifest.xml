@@ -42,7 +42,7 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".ajoute_branch"></activity>
+        <activity android:name=".ajoute_branch" />
         <activity android:name=".ajouter_supplier">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,7 +50,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ajouter_brand"></activity>
+        <activity android:name=".ajouter_brand" />
+        <activity android:name=".ajouter_product"></activity>
     </application>
 
 </manifest>
