@@ -29,4 +29,5 @@
     <string name="ajouter_supplier">Ajouter Supplier</string>
     <string name="ajouter_brand">Ajouter Brand</string>
     <string name="ajouter_product">Ajouter Product</string>
+    <string name="supplier_brand">Supplier Brand</string>
 </resources>

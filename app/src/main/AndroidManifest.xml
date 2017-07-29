@@ -51,7 +51,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ajouter_brand" />
-        <activity android:name=".ajouter_product"></activity>
+        <activity android:name=".ajouter_product" />
+        <activity android:name=".ajouter_supplier_brand"></activity>
     </application>
 
 </manifest>
