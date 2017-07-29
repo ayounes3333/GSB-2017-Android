@@ -27,4 +27,5 @@
     <string name="branch_nom">Branch Nom</string>
     <string name="ajouter_branch">Ajouter Branch</string>
     <string name="ajouter_supplier">Ajouter Supplier</string>
+    <string name="ajouter_brand">Ajouter Brand</string>
 </resources>
