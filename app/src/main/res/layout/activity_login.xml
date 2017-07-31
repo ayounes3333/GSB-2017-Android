@@ -11,14 +11,6 @@
     tools:context="com.zaita.aliyounes.gsbvc2017.LoginActivity">
 
     <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -65,14 +57,23 @@
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:background="@drawable/circular_button_dark"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/circular_button_dark"
                 android:text="@string/action_sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
 </LinearLayout>
