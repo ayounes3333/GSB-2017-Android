@@ -49,7 +49,8 @@
             android:name=".activities.ajouter_supplier_brand"
             android:screenOrientation="portrait" />
         <activity android:name=".item_client_layout" />
-        <activity android:name=".item_supplier_layout"></activity>
+        <activity android:name=".item_supplier_layout" />
+        <activity android:name=".item_product_layout"></activity>
     </application>
 
 </manifest>

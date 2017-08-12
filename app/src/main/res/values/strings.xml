@@ -51,4 +51,10 @@
     <string name="email_supplier">Email Supplier</string>
     <string name="mobile_supplier">Mobile Supplier</string>
     <string name="nom_supplier">Nom Supplier</string>
+    <string name="nom_produit">Nom Produit</string>
+    <string name="famille_produit">Famille Produit</string>
+    <string name="type_produit">Type Produit</string>
+    <string name="saison_produit">Saison Produit</string>
+    <string name="prix_de_revient">Prix De Revient</string>
+    <string name="prix_de_vente">Prix De Vente</string>
 </resources>
