@@ -37,4 +37,5 @@
     <string name="nom_du_branche">Nom:</string>
     <string name="tel_du_branche">Telephone:</string>
     <string name="addresse_du_branche">Addresse:</string>
+    <string name="nom_du_brand">Nom Du Brand</string>
 </resources>
