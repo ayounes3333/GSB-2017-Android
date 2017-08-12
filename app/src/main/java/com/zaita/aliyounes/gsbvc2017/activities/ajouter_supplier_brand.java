@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajouter_supplier_brand extends AppCompatActivity {
+public class  ajouter_supplier_brand extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
