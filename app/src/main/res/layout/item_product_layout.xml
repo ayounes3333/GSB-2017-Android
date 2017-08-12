@@ -17,14 +17,15 @@
             android:layout_height="wrap_content"
             tools:background="@color/colorPrimary"
             android:id="@+id/linearLayout_iconBackground">
+
             <ImageView
+                android:id="@+id/imageView_icon"
                 android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_branch"
-                android:tint="@color/white"
-                android:layout_gravity="center"
-                android:id="@+id/imageView_icon"/>
+                android:tint="@color/white" />
         </LinearLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
