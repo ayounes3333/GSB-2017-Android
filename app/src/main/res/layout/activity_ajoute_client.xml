@@ -6,13 +6,15 @@
     tools:context="com.zaita.aliyounes.gsbvc2017.activities.AjouteClientActivity">
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/nestedScrollView_data"
         android:layout_above="@+id/button_ajouter">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/textView_titre"
                 android:layout_width="wrap_content"
@@ -126,13 +128,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textInput_nom"
-                android:layout_toRightOf="@+id/textView_titre_client"
-                android:layout_toEndOf="@id/textView_titre_client"
                 android:layout_marginEnd="32dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/textView_titre_client"
+                android:layout_toRightOf="@+id/textView_titre_client" />
 
             <TextView
                 android:id="@+id/textView_titre_client"
@@ -144,7 +146,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/ajouter_client_titre_client"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/textInput_email"
@@ -168,8 +170,22 @@
                     android:ems="10"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkBox_canReceiveSMS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_below="@id/textInput_Adresse"
+                android:text="@string/voulez_recevoir_des_nouvelles_par_sms" />
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
+
     <Button
         android:id="@+id/button_ajouter"
         android:layout_width="match_parent"
@@ -182,5 +198,5 @@
         android:background="@drawable/circular_button_dark"
         android:text="@string/ajouter"
         android:textAllCaps="false"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 </RelativeLayout>
