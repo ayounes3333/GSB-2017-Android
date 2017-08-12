@@ -1,4 +1,4 @@
-package com.zaita.aliyounes.gsbvc2017;
+package com.zaita.aliyounes.gsbvc2017.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,6 +29,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.zaita.aliyounes.gsbvc2017.R;
 
 import java.util.ArrayList;
 import java.util.List;
