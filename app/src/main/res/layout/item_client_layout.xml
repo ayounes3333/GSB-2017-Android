@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    app:cardCornerRadius="5dp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            tools:background="@color/colorPrimary"
+            android:id="@+id/linearLayout_iconBackground">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_branch"
+                android:tint="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/imageView_icon"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/linearLayout_iconBackground"
+            android:layout_toEndOf="@+id/linearLayout_iconBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_nomClient_titre"
+                android:text="@string/nom_du_client"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_nomClient"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@+id/textView_nomClient_titre"
+                android:layout_toEndOf="@+id/textView_nomClient_titre"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_titreClient_titre"
+                android:layout_below="@+id/textView_nomClient_titre"
+                android:text="@string/titre_client"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_titreClient"
+                android:layout_below="@+id/textView_nomClient_titre"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@+id/textView_titreClient_titre"
+                android:layout_toEndOf="@+id/textView_titreClient_titre"/>
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_email_titre"
+                android:text="@string/email_client"
+                android:layout_below="@+id/textView_titreClient_titre"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_emailClient"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_below="@id/textView_titreClient"
+                android:layout_toRightOf="@+id/textView_email_titre"
+                android:layout_toEndOf="@+id/textView_email_titre"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_tel_titre"
+                android:text="@string/telephone_client"
+                android:layout_below="@+id/textView_email_titre"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_telClient"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_below="@+id/textView_emailClient"
+                android:layout_toRightOf="@+id/textView_tel_titre"
+                android:layout_toEndOf="@+id/textView_tel_titre"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_mobile_titre"
+                android:text="@string/mobile_client"
+                android:layout_below="@+id/textView_tel_titre"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_mobileClient"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_below="@+id/textView_telClient"
+                android:layout_toRightOf="@+id/textView_mobile_titre"
+                android:layout_toEndOf="@+id/textView_mobile_titre"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_adr_titre"
+                android:text="@string/adresse_client"
+                android:layout_below="@+id/textView_mobile_titre"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_adrClient"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_below="@id/textView_mobileClient"
+                android:layout_toRightOf="@+id/adresse_client"
+                android:layout_toEndOf="@+id/adresse_client"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
