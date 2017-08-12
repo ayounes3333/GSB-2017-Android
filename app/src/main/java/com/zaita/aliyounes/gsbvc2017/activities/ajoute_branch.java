@@ -13,7 +13,7 @@ import com.zaita.aliyounes.gsbvc2017.R;
 public class ajoute_branch extends AppCompatActivity {
     private TextInputLayout textInput_nom;
     private TextInputLayout textInput_addresse;
-    private TextInputLayout textInput_tel;
+    private TextInputLayout textInput_tel ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
