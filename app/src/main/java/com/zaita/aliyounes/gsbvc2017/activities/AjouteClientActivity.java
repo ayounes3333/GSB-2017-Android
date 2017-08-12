@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class AjouteClientActivity extends AppCompatActivity {
     private TextInputLayout textInput_addresse;
     private TextInputLayout textInput_mobile;
     private TextInputLayout textInput_tel;
+    private CheckBox checkBox_sms;
     private Spinner spinner_titre;
 
     @Override
@@ -32,6 +34,7 @@ public class AjouteClientActivity extends AppCompatActivity {
         textInput_addresse = (TextInputLayout) findViewById(R.id.textInput_Adresse);
         textInput_mobile   = (TextInputLayout) findViewById(R.id.textInput_mobile);
         textInput_tel      = (TextInputLayout) findViewById(R.id.textInput_telephone);
+        checkBox_sms       = (CheckBox) findViewById(R.id.checkBox_canReceiveSMS);
         spinner_titre      = (Spinner) findViewById(R.id.spinner_titre);
         Button button_ajouter = (Button) findViewById(R.id.button_ajouter);
         button_ajouter.setOnClickListener(new View.OnClickListener() {
