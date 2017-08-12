@@ -36,53 +36,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_nomBrand_titre"
-                android:text="@string/nom_du_branche"
+                android:text="@string/nom_du_brand"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_nomBranch"
+                android:id="@+id/textView_nomBrand"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_toRightOf="@+id/textView_nomBrand_titre"
                 android:layout_toEndOf="@id/textView_nomBrand_titre"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_telBranch_titre"
-                android:layout_below="@id/textView_nomBrand_titre"
-                android:text="@string/tel_du_branche"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_telBranch"
-                android:layout_below="@id/textView_nomBranch"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_toRightOf="@+id/textView_telBranch_titre"
-                android:layout_toEndOf="@id/textView_telBranch_titre"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_addrBranch_titre"
-                android:text="@string/addresse_du_branche"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_below="@id/textView_telBranch_titre" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_addrBranch"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_below="@id/textView_telBranch"
-                android:layout_toRightOf="@+id/textView_addrBranch_titre"
-                android:layout_toEndOf="@id/textView_addrBranch_titre"/>
         </RelativeLayout>
 
     </RelativeLayout>

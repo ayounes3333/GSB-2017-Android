@@ -38,4 +38,5 @@
     <string name="tel_du_branche">Telephone:</string>
     <string name="addresse_du_branche">Addresse:</string>
     <string name="voulez_recevoir_des_nouvelles_par_sms">Voulez recevoir des nouvelles par SMS</string>
+    <string name="nom_du_brand">Nom Du Brand</string>
 </resources>
