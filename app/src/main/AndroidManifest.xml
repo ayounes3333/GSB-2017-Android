@@ -15,44 +15,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"/>
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:name=".activities.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" />
+
         <activity
-            android:name=".AjouteClientActivity"
-            android:label="@string/ajouter_client_titre">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".ajoute_branch" />
-        <activity android:name=".ajouter_supplier">
+            android:name=".activities.AjouteClientActivity"
+            android:label="@string/ajouter_client_titre"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ajouter_brand" />
-        <activity android:name=".ajouter_product" />
-        <activity android:name=".ajouter_supplier_brand"></activity>
+
+        <activity
+            android:name=".activities.ajoute_branch"
+            android:label="@string/ajouter_branch_titre"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.ajouter_supplier"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activities.ajouter_brand"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.ajouter_product"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.ajouter_supplier_brand"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

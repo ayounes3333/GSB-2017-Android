@@ -30,4 +30,11 @@
     <string name="ajouter_brand">Ajouter Brand</string>
     <string name="ajouter_product">Ajouter Product</string>
     <string name="supplier_brand">Supplier Brand</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ajouter_branch_titre">Ajouter un branch</string>
+    <string name="nom_du_branche">Nom:</string>
+    <string name="tel_du_branche">Telephone:</string>
+    <string name="addresse_du_branche">Addresse:</string>
 </resources>
