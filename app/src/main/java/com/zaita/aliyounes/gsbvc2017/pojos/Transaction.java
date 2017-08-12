@@ -1,7 +1,7 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
 /**
- * Created by Chawach on 7/17/2017.
+ * Created by Elie Ohanian on 7/17/2017.
  */
 
 public class Transaction {
