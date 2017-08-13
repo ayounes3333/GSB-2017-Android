@@ -64,6 +64,7 @@
                 android:id="@+id/textView_type_prd"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_below="@id/textView_nomPro"
                 android:layout_toRightOf="@+id/textView_type_prd_titre"
                 android:layout_toEndOf="@+id/textView_type_prd_titre"/>
 
@@ -78,7 +79,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_telSup"
+                android:id="@+id/textView_fam_prod"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_below="@+id/textView_type_prd"
@@ -99,7 +100,7 @@
                 android:id="@+id/textView_Sais_prd"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_below="@+id/textView_type_prd"
+                android:layout_below="@+id/textView_fam_prod"
                 android:layout_toRightOf="@+id/textView_Sais_prd_titre"
                 android:layout_toEndOf="@+id/textView_Sais_prd_titre"/>
 
@@ -119,7 +120,7 @@
                 android:id="@+id/textView_prix_revient"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_below="@id/textView_mobileSup"
+                android:layout_below="@+id/textView_Sais_prd"
                 android:layout_toRightOf="@+id/textView_prix_revient_titre"
                 android:layout_toEndOf="@+id/textView_prix_revient_titre"/>
 

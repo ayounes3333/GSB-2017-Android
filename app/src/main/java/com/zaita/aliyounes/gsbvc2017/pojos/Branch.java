@@ -11,6 +11,17 @@ public class Branch {
     private String TelBr;
     private String AddressBr;
 
+    public Branch() {
+
+    }
+
+    //For dummy branches
+    public Branch(String nameBr, String telBr, String addressBr) {
+        NameBr = nameBr;
+        TelBr = telBr;
+        AddressBr = addressBr;
+    }
+
     public int getCodeBr() {
         return CodeBr;
     }

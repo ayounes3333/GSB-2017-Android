@@ -8,6 +8,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     app:cardCornerRadius="5dp"
+    android:id="@+id/cardView_branch"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"

@@ -17,7 +17,13 @@
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login"
@@ -25,13 +31,7 @@
         <activity
             android:name=".activities.AjouteClientActivity"
             android:label="@string/ajouter_client_titre"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.ajoute_branch"
             android:label="@string/ajouter_branch_titre"
@@ -48,9 +48,10 @@
         <activity
             android:name=".activities.ajouter_supplier_brand"
             android:screenOrientation="portrait" />
-        <activity android:name=".item_client_layout" />
-        <activity android:name=".item_supplier_layout" />
-        <activity android:name=".item_product_layout"></activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -8,12 +8,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView_branches"/>
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/floatingActionButton_ajouterBranche"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_add_black_48dp"
-        android:tint="@color/white"
-        android:layout_gravity="bottom|end"/>
 </FrameLayout>
