@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 import com.zaita.aliyounes.gsbvc2017.fragments.BranchesFragment;
+import com.zaita.aliyounes.gsbvc2017.fragments.ClientsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -97,6 +98,19 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(MainActivity.this , ajoute_branch.class));
+                }
+            });
+        } else if (id == R.id.adresse_client) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frameLayout_fragment_container,
+                            new ClientsFragment(),
+                            ClientsFragment.TAG)
+                    .commit();
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(MainActivity.this , AjouteClientActivity.class));
                 }
             });
         }

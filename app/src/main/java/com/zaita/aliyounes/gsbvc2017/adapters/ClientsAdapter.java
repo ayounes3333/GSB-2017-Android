@@ -65,9 +65,9 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
 
         //Bind data to List item
         void bind(Client Client) {
-            textView_branchAddresse.setText(Client.getAddressBr());
-            textView_branchName.setText(Client.getNameBr());
-            textView_branchTelephone.setText(Client.getTelBr());
+            textView_branchAddresse.setText(Client.getAddressClt());
+            textView_branchName.setText(Client.getNameClt());
+            textView_branchTelephone.setText(Client.getTelClt());
             linearLayout_iconBackground.setBackgroundColor(ColorHelper.getRandomColor());
             cardView_branch.setOnClickListener(new View.OnClickListener() {
                 @Override

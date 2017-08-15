@@ -24,7 +24,7 @@
                 android:layout_height="85dp"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
-                android:src="@drawable/ic_branch"
+                android:src="@drawable/ic_client"
                 android:tint="@color/white" />
         </LinearLayout>
         <RelativeLayout
@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_adr_titre"
+                android:id="@+id/textView_adr_client_titre"
                 android:text="@string/adresse_client"
                 android:layout_below="@+id/textView_mobile_titre"
                 android:layout_marginLeft="16dp"
@@ -142,8 +142,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_below="@id/textView_mobileClient"
-                android:layout_toRightOf="@+id/adresse_client"
-                android:layout_toEndOf="@+id/adresse_client"/>
+                android:layout_toRightOf="@+id/textView_adr_client_titre"
+                android:layout_toEndOf="@+id/textView_adr_client_titre"/>
         </RelativeLayout>
 
     </RelativeLayout>

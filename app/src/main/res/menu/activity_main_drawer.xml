@@ -6,6 +6,10 @@
             android:id="@+id/nav_branches"
             android:icon="@drawable/ic_branch"
             android:title="@string/branches" />
+        <item
+            android:id="@+id/nav_client"
+            android:icon="@drawable/ic_client"
+            android:title="@string/clients" />
     </group>
 
     <item android:title="@string/about">

@@ -18,6 +18,15 @@ public class Client {
     private String CreationDateClt;
     private String CreationUserClt;
 
+    public Client(String nameClt, String telClt, String mobClt, String titleClt, String addressClt, String emailClt) {
+        NameClt = nameClt;
+        TelClt = telClt;
+        MobClt = mobClt;
+        TitleClt = titleClt;
+        AddressClt = addressClt;
+        EmailClt = emailClt;
+    }
+
     public int getClient() {
         return Client;
     }
