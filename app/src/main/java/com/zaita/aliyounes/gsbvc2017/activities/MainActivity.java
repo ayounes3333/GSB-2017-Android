@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
                     startActivity(new Intent(MainActivity.this , ajoute_branch.class));
                 }
             });
-        } else if (id == R.id.adresse_client) {
+        } else if (id == R.id.nav_client) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.frameLayout_fragment_container,
