@@ -3,7 +3,6 @@ package com.zaita.aliyounes.gsbvc2017.activities;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class Ajouter_user extends AppCompatActivity {
+public class ajouter_user extends AppCompatActivity {
     private TextInputLayout textInput_Code_user;
     private TextInputLayout textInput_FullName;
     private TextInputLayout textInput_TelUsr ;
@@ -48,7 +47,7 @@ public class Ajouter_user extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(Ajouter_user.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ajouter_user.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
                     addUser();
             }
@@ -56,11 +55,11 @@ public class Ajouter_user extends AppCompatActivity {
     }
     private boolean checkFields() {
         if( textInput_Code_user.getEditText()   != null &&
-            textInput_FullName.getEditText()    != null &&
-            textInput_TelUsr.getEditText()      != null&&
-            textInput_AdrUsr.getEditText()      != null &&
-            textView_Password1.getEditText()    != null &&
-            textView_Password2.getEditText()    != null) {
+                textInput_FullName.getEditText()    != null &&
+                textInput_TelUsr.getEditText()      != null&&
+                textInput_AdrUsr.getEditText()      != null &&
+                textView_Password1.getEditText()    != null &&
+                textView_Password2.getEditText()    != null) {
             if (textInput_Code_user.getEditText().getText().toString().equalsIgnoreCase("")) {
                 textInput_Code_user.setError("Email Est Obligatoire");
                 return false;
@@ -103,30 +102,7 @@ public class Ajouter_user extends AppCompatActivity {
         return false;
     }
 
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
-    }
-
-    boolean cancel = false;
-    View focusView = null;
-
-    private boolean isPasswordValid1(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
-    }
-    // Check for a valid password, if the user entered one.
-        //String password = mPasswordView.getText().toString();
-        //if (!isPasswordValid1((EditText)findViewById(R.id.textView_Password1)) {
-        //mPasswordView.setError(getString(R.string.error_invalid_password));
-        //focusView = mPasswordView;
-        //cancel = true;
-    //}
     private void addUser() {
         //TODO: implement API call
     }

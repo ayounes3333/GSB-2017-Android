@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_user">
+    tools:context="com.zaita.aliyounes.gsbvc2017.activities.ajouter_user">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView_data"
@@ -25,7 +25,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Ajouter User"
+                android:text="@string/ajouter_user"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />

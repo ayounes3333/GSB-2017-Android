@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
+
+
 public class startup extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,7 @@ public class startup extends AppCompatActivity {
         finish();
     }
     public void register(View view) {
-        Intent intent = new Intent(startup.this , Ajouter_user.class);
+        Intent intent = new Intent(startup.this , ajouter_user.class);
         startActivity(intent);
         finish();
     }
