@@ -31,6 +31,10 @@
             android:label="@string/ajouter_branch_titre"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activities.ajouter_user"
+            android:label="Ajouter User"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.ajouter_supplier"
             android:screenOrientation="portrait" />
         <activity
