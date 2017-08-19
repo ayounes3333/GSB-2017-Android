@@ -22,7 +22,7 @@ public class startup extends AppCompatActivity {
         finish();
     }
     public void register(View view) {
-        Intent intent = new Intent(startup.this , ajouter_user.class);
+        Intent intent = new Intent(startup.this , RegisterActivity.class);
         startActivity(intent);
         finish();
     }

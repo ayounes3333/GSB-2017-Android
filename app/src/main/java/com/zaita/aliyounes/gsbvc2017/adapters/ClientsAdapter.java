@@ -56,10 +56,10 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
 
         ClientVieHolder(View itemView) {
             super(itemView);
-            textView_branchName         = (TextView) itemView.findViewById(R.id.textView_nomBranch);
-            textView_branchTelephone    = (TextView) itemView.findViewById(R.id.textView_telBranch);
-            textView_branchAddresse     = (TextView) itemView.findViewById(R.id.textView_addrBranch);
-            cardView_branch             = (CardView) itemView.findViewById(R.id.cardView_branch);
+            textView_branchName         = (TextView) itemView.findViewById(R.id.textView_nomClient);
+            textView_branchTelephone    = (TextView) itemView.findViewById(R.id.textView_telClient);
+            textView_branchAddresse     = (TextView) itemView.findViewById(R.id.textView_adrClient);
+            cardView_branch             = (CardView) itemView.findViewById(R.id.cardView_client);
             linearLayout_iconBackground = (LinearLayout) itemView.findViewById(R.id.linearLayout_iconBackground);
         }
 
@@ -72,7 +72,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
             cardView_branch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Add action for branch item click
+                    //Add action for client item click
                 }
             });
         }

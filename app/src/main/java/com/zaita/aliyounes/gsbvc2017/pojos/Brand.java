@@ -11,6 +11,10 @@ public class Brand {
     private String CreationDateBrd;
     private String CreationUserBrd;
 
+    public Brand(String name) { //Constructor for dummy brands
+        this.NameBrd = name;
+    }
+
     public int getCodeBrd() {
         return CodeBrd;
     }

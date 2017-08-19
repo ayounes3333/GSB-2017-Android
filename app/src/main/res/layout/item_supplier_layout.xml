@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/cardView_supplier"
     android:layout_width="match_parent"
     android:layout_marginTop="5dp"
     android:layout_marginLeft="5dp"
@@ -24,7 +25,7 @@
                 android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
-                android:src="@drawable/ic_branch"
+                android:src="@drawable/ic_supplier_brand"
                 android:tint="@color/white" />
         </LinearLayout>
         <RelativeLayout
@@ -64,6 +65,7 @@
                 android:id="@+id/textView_emailSup"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_below="@id/textView_nomSup"
                 android:layout_toRightOf="@+id/textView_email_titre"
                 android:layout_toEndOf="@+id/textView_email_titre"/>
 

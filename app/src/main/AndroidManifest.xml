@@ -31,10 +31,6 @@
             android:label="@string/ajouter_branch_titre"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ajouter_user"
-            android:label="Ajouter User"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.ajouter_supplier"
             android:screenOrientation="portrait" />
         <activity
@@ -42,9 +38,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ajouter_product"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ajouter_supplier_brand"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MainActivity"
@@ -57,7 +50,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.RegisterActivity"></activity>
     </application>
 
 </manifest>

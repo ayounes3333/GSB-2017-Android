@@ -1,18 +1,16 @@
 package com.zaita.aliyounes.gsbvc2017.activities;
 
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajouter_user extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout textInput_Code_user;
     private TextInputLayout textInput_FullName;
     private TextInputLayout textInput_TelUsr ;
@@ -20,16 +18,11 @@ public class ajouter_user extends AppCompatActivity {
     private TextInputLayout textView_Password1;
     private TextInputLayout textView_Password2 ;
     private Spinner spinner_branch;
-    private String email;
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajouter_user);
+        setContentView(R.layout.activity_register);
         setupViews();
     }
     private void setupViews() {
@@ -41,15 +34,15 @@ public class ajouter_user extends AppCompatActivity {
         textView_Password2      = (TextInputLayout) findViewById(R.id.textView_Password2);
         spinner_branch          = (Spinner) findViewById(R.id.spinner_Branch);
 
-        Button button_ajouter = (Button) findViewById(R.id.button_ajouter);
+        Button button_register = (Button) findViewById(R.id.button_ajouter);
 
-        button_ajouter.setOnClickListener(new View.OnClickListener() {
+        button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(ajouter_user.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
-                    addUser();
+                    Register();
             }
         });
     }
@@ -103,7 +96,7 @@ public class ajouter_user extends AppCompatActivity {
     }
 
 
-    private void addUser() {
+    private void Register() {
         //TODO: implement API call
     }
 }

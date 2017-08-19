@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,10 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 import com.zaita.aliyounes.gsbvc2017.fragments.BranchesFragment;
+import com.zaita.aliyounes.gsbvc2017.fragments.BrandsFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.ClientsFragment;
+import com.zaita.aliyounes.gsbvc2017.fragments.ProductsFragment;
+import com.zaita.aliyounes.gsbvc2017.fragments.SuppliersFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +42,20 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLayout_fragment_container,
+                        new BranchesFragment(),
+                        BranchesFragment.TAG)
+                .commit();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this , ajoute_branch.class));
+            }
+        });
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.branches);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -86,33 +103,102 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_branches) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frameLayout_fragment_container,
-                            new BranchesFragment(),
-                            BranchesFragment.TAG)
-                    .commit();
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(MainActivity.this , ajoute_branch.class));
-                }
-            });
-        } else if (id == R.id.nav_client) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frameLayout_fragment_container,
-                            new ClientsFragment(),
-                            ClientsFragment.TAG)
-                    .commit();
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(MainActivity.this , AjouteClientActivity.class));
-                }
-            });
+        switch (id) {
+            case R.id.nav_branches : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new BranchesFragment(),
+                                BranchesFragment.TAG)
+                        .commit();
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this , ajoute_branch.class));
+                    }
+                });
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.branches);
+            }
+            break;
+            case R.id.nav_brands : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new BrandsFragment(),
+                                BrandsFragment.TAG)
+                        .commit();
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this , ajouter_brand.class));
+                    }
+                });
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.brands);
+            }
+            break;
+            case R.id.nav_client : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new ClientsFragment(),
+                                ClientsFragment.TAG)
+                        .commit();
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this , AjouteClientActivity.class));
+                    }
+                });
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.clients);
+            }
+            break;
+            case R.id.nav_products : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new ProductsFragment(),
+                                ProductsFragment.TAG)
+                        .commit();
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this , ajouter_product.class));
+                    }
+                });
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.products);
+            }
+            break;
+            case R.id.nav_suppliers : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new SuppliersFragment(),
+                                SuppliersFragment.TAG)
+                        .commit();
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this , ajouter_supplier.class));
+                    }
+                });
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.suppliers);
+            }
+            break;
+            case R.id.nav_about : {
+                //TODO implement About Screen
+                Toast.makeText(MainActivity.this , "Not Implemented Yet" , Toast.LENGTH_SHORT).show();
+            }
+            break;
+            case R.id.nav_contact : {
+                //TODO implement Contact Screen
+                Toast.makeText(MainActivity.this , "Not Implemented Yet" , Toast.LENGTH_SHORT).show();
+            }
+            break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
