@@ -73,4 +73,8 @@
     <string name="brands">Brands</string>
     <string name="products">Products</string>
     <string name="suppliers">Suppliers</string>
+    <string name="action_logout">Log Out</string>
+    <string name="ajoute_supplier_title">Ajouter un Supplier</string>
+    <string name="ajoute_brand_title">Ajouter un Brand</string>
+    <string name="ajoute_product_title">Ajouter un Produit</string>
 </resources>

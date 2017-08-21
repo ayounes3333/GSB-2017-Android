@@ -22,6 +22,7 @@ import com.zaita.aliyounes.gsbvc2017.fragments.BrandsFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.ClientsFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.ProductsFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.SuppliersFragment;
+import com.zaita.aliyounes.gsbvc2017.helpers.PrefUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this , ajoute_branch.class));
+                startActivity(new Intent(MainActivity.this , AjouteBranchActivity.class));
             }
         });
         if(getSupportActionBar() != null)
@@ -91,7 +92,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+            PrefUtils.clearAll(MainActivity.this);
+            Intent intent = new Intent(MainActivity.this , LoginActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(MainActivity.this , ajoute_branch.class));
+                        startActivity(new Intent(MainActivity.this , AjouteBranchActivity.class));
                     }
                 });
                 if(getSupportActionBar() != null)
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(MainActivity.this , ajouter_brand.class));
+                        startActivity(new Intent(MainActivity.this , AjouteBbrandActivity.class));
                     }
                 });
                 if(getSupportActionBar() != null)
@@ -165,7 +170,7 @@ public class MainActivity extends AppCompatActivity
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(MainActivity.this , ajouter_product.class));
+                        startActivity(new Intent(MainActivity.this , AjouteProductActivity.class));
                     }
                 });
                 if(getSupportActionBar() != null)
@@ -182,7 +187,7 @@ public class MainActivity extends AppCompatActivity
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(MainActivity.this , ajouter_supplier.class));
+                        startActivity(new Intent(MainActivity.this , AjouteSupplierActivity.class));
                     }
                 });
                 if(getSupportActionBar() != null)
