@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.helpers.PrefUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -336,6 +337,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                PrefUtils.setBoolean(LoginActivity.this , PrefUtils.Prefs.IS_USER_LOGGED_IN , true);
                 Intent intent = new Intent(LoginActivity.this , MainActivity.class);
                 startActivity(intent);
                 finish();

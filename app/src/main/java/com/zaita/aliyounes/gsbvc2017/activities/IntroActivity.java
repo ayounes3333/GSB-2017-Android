@@ -9,7 +9,7 @@ import com.zaita.aliyounes.gsbvc2017.R;
 
 
 
-public class startup extends AppCompatActivity {
+public class IntroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,12 @@ public class startup extends AppCompatActivity {
         setContentView(R.layout.activity_startup);
     }
     public void sign_in_button(View view) {
-        Intent intent = new Intent(startup.this , LoginActivity.class);
+        Intent intent = new Intent(IntroActivity.this , LoginActivity.class);
         startActivity(intent);
         finish();
     }
     public void register(View view) {
-        Intent intent = new Intent(startup.this , ajouter_user.class);
+        Intent intent = new Intent(IntroActivity.this , RegisterActivity.class);
         startActivity(intent);
         finish();
     }

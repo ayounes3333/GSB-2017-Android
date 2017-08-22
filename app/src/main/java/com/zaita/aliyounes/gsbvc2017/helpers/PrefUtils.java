@@ -115,4 +115,9 @@ public class PrefUtils {
                 .getDefaultSharedPreferences(context);
         settings.edit().remove(key).apply();
     }
+    public class Prefs {
+        public static final String IS_USER_LOGGED_IN = "IsUserLoggedIn";
+        public static final String SESSION_ID = "SessionId";
+        public static final String APP_COOKIE = "AppCookie";
+    }
 }

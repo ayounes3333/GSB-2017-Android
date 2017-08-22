@@ -5,12 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajoute_branch extends AppCompatActivity {
+public class AjouteBranchActivity extends AppCompatActivity {
     private TextInputLayout textInput_nom;
     private TextInputLayout textInput_addresse;
     private TextInputLayout textInput_tel ;
@@ -30,7 +29,7 @@ public class ajoute_branch extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(ajoute_branch.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteBranchActivity.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
                     addBranch();
             }

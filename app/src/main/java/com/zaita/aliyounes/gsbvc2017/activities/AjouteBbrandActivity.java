@@ -5,12 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajouter_brand extends AppCompatActivity {
+public class AjouteBbrandActivity extends AppCompatActivity {
     private TextInputLayout textInput_nom;
 
     @Override
@@ -26,7 +25,7 @@ public class ajouter_brand extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(ajouter_brand.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteBbrandActivity.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
                     addBrand();
             }

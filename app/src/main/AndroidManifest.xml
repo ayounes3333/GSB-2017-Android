@@ -17,7 +17,13 @@
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login"
@@ -27,37 +33,33 @@
             android:label="@string/ajouter_client_titre"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ajoute_branch"
+            android:name=".activities.AjouteBranchActivity"
             android:label="@string/ajouter_branch_titre"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ajouter_user"
-            android:label="Ajouter User"
+            android:name=".activities.AjouteSupplierActivity"
+            android:label="@string/ajoute_supplier_title"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ajouter_supplier"
+            android:name=".activities.AjouteBbrandActivity"
+            android:label="@string/ajoute_brand_title"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ajouter_brand"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ajouter_product"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ajouter_supplier_brand"
+            android:name=".activities.AjouteProductActivity"
+            android:label="@string/ajoute_product_title"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.startup">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity
+            android:name=".activities.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:label="@string/register"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

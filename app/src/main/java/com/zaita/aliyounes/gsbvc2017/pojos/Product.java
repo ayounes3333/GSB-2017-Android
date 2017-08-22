@@ -14,12 +14,23 @@ public class Product {
     private String StatusPr;
     private String MadeInPr;
     private int CodeBr;
-    private int CostPrice;
-    private int SellingPrice;
+    private String CostPrice;
+    private String SellingPrice;
     private int CodeSupBrand;
     private String SeasonPr;
     private String CreationDatePr;
     private String CreationUserPr;
+
+    //Constructor for dummy products
+    public Product(String namePr, String typePr, String familyPr, String costPrice, String sellingPrice, String seasonPr) {
+        NamePr = namePr;
+        TypePr = typePr;
+        FamilyPr = familyPr;
+        CostPrice = costPrice;
+        SellingPrice = sellingPrice;
+        SeasonPr = seasonPr;
+    }
+
 
     public int getQtyPr() {
         return QtyPr;
@@ -95,19 +106,19 @@ public class Product {
         CodeBr = codeBr;
     }
 
-    public int getCostPrice() {
+    public String getCostPrice() {
         return CostPrice;
     }
 
-    public void setCostPrice(int costPrice) {
+    public void setCostPrice(String costPrice) {
         CostPrice = costPrice;
     }
 
-    public int getSellingPrice() {
+    public String getSellingPrice() {
         return SellingPrice;
     }
 
-    public void setSellingPrice(int sellingPrice) {
+    public void setSellingPrice(String sellingPrice) {
         SellingPrice = sellingPrice;
     }
 

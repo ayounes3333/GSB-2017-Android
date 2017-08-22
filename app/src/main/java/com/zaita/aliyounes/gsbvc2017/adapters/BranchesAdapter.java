@@ -20,7 +20,7 @@ import java.util.List;
 
 public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.BranchVieHolder> {
 
-    //List of brances to show
+    //List of branches to show
     private List<Branch> branches;
 
     public BranchesAdapter(List<Branch> branches) {

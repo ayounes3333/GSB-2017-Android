@@ -21,8 +21,8 @@ import java.util.List;
  */
 
 public class ClientsFragment extends Fragment {
-    public static final String TAG = BranchesFragment.class.getSimpleName();
-    RecyclerView recyclerView_branches;
+    public static final String TAG = ClientsFragment.class.getSimpleName();
+    RecyclerView recyclerView_clients;
     ClientsAdapter adapter;
     public ClientsFragment() {
         // Required empty public constructor
@@ -32,7 +32,7 @@ public class ClientsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_branches, container, false);
+        return inflater.inflate(R.layout.fragment_clients, container, false);
     }
 
     @Override
@@ -41,18 +41,18 @@ public class ClientsFragment extends Fragment {
         setupViews(view);
     }
     private void setupViews(View rootView) {
-        recyclerView_branches = (RecyclerView) rootView.findViewById(R.id.recyclerView_branches);
+        recyclerView_clients = (RecyclerView) rootView.findViewById(R.id.recyclerView_clients);
         setupRecyclerView();
     }
 
     //Setup the list
     private void setupRecyclerView() {
         adapter = new ClientsAdapter(getDummyClients());
-        recyclerView_branches.setAdapter(adapter);
-        recyclerView_branches.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
+        recyclerView_clients.setAdapter(adapter);
+        recyclerView_clients.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
     }
 
-    //Create dummy branches
+    //Create dummy Clients
     private List<Client> getDummyClients() {
         List<Client> dummyClients = new ArrayList<>();
         dummyClients.add(new Client("Client 1" , "00961 1 123456" , "+961 76 123 456" , "Mr" , "Beirut - Hamra"      , "client1@example.com"));

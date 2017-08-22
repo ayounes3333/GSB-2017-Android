@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/cardView_client"
     android:layout_width="match_parent"
     android:layout_marginTop="5dp"
     android:layout_marginLeft="5dp"
@@ -124,8 +125,6 @@
                 android:layout_below="@+id/textView_telClient"
                 android:layout_toRightOf="@+id/textView_mobile_titre"
                 android:layout_toEndOf="@+id/textView_mobile_titre"/>
-
-
 
             <TextView
                 android:layout_width="wrap_content"

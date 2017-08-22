@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajouter_supplier extends AppCompatActivity {
+public class AjouteSupplierActivity extends AppCompatActivity {
     private TextInputLayout textInput_nom;
     private TextInputLayout textInput_email;
     private TextInputLayout textInput_addresse;
@@ -34,7 +34,7 @@ public class ajouter_supplier extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(ajouter_supplier.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteSupplierActivity.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
                     addSupplier();
             }

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 
-public class ajouter_product extends AppCompatActivity {
+public class AjouteProductActivity extends AppCompatActivity {
     private TextInputLayout textInput_nom;
     private TextInputLayout textInput_cost;
     private TextInputLayout textInput_sel;
@@ -42,7 +42,7 @@ public class ajouter_product extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!checkFields())
-                    Toast.makeText(ajouter_product.this, "Erreur", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteProductActivity.this, "Erreur", Toast.LENGTH_SHORT).show();
                 else
                     addProduct();
             }

@@ -16,6 +16,15 @@ public class Supplier {
     private String CreationDateSup;
     private String CreationUserSup;
 
+    //Constructor for dummy suppliers
+    public Supplier(String emailSup, String telSup, String nameSup, String mobSup, String addressSup) {
+        EmailSup = emailSup;
+        TelSup = telSup;
+        NameSup = nameSup;
+        MobSup = mobSup;
+        AddressSup = addressSup;
+    }
+
     public int getCodeSup() {
         return CodeSup;
     }
