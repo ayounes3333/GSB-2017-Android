@@ -77,4 +77,8 @@
     <string name="ajoute_supplier_title">Ajouter un Supplier</string>
     <string name="ajoute_brand_title">Ajouter un Brand</string>
     <string name="ajoute_product_title">Ajouter un Produit</string>
+    <string name="product">Product</string>
+    <string name="transaction_code">Transaction Code</string>
+    <string name="ajouter_transaction">Ajouter Transaction</string>
+    <string name="branch">Branch</string>
 </resources>
