@@ -134,7 +134,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/textView_titre_client"
-                android:layout_toRightOf="@+id/textView_titre_client" />
+                android:layout_toRightOf="@+id/textView_titre_client"
+                android:entries="@array/ClientTitlew"/>
 
             <TextView
                 android:id="@+id/textView_titre_client"
