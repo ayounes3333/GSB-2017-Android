@@ -81,7 +81,7 @@ android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            android:text="@string/transaction_code"
+            android:text="Transfer Code"
             android:textSize="16sp" />
 
         <android.support.design.widget.TextInputLayout
@@ -94,7 +94,7 @@ android:layout_height="match_parent"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:hint="Transaction Number">
+            android:hint="Transfer Number">
 
             <EditText
                 android:id="@+id/OrdNum_text"
@@ -118,7 +118,7 @@ android:layout_height="match_parent"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:hint="Transaction Date">
+            android:hint="Transfer Date">
 
             <EditText
                 android:id="@+id/OrdDate_text"
