@@ -3,7 +3,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="com.zaita.aliyounes.gsbvc2017.invoice">
+tools:context="com.zaita.aliyounes.gsbvc2017.activities.invoice">
 
 <android.support.v4.widget.NestedScrollView
     android:id="@+id/nestedScrollView_data"
@@ -68,7 +68,8 @@ tools:context="com.zaita.aliyounes.gsbvc2017.invoice">
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/spinner_Trcode_Titre"
-            android:layout_toRightOf="@+id/spinner_Trcode_Titre"/>
+            android:layout_toRightOf="@+id/spinner_Trcode_Titre"
+            android:entries="@array/spinner_invoice"/>
 
         <TextView
             android:id="@+id/spinner_Trcode_Titre"
@@ -131,11 +132,8 @@ tools:context="com.zaita.aliyounes.gsbvc2017.invoice">
         </android.support.design.widget.TextInputLayout>
 
 
-
-
-
         <Spinner
-            android:id="@+id/spinner_Prcode"
+            android:id="@+id/spinner_Client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/OrdDate"
@@ -148,10 +146,36 @@ tools:context="com.zaita.aliyounes.gsbvc2017.invoice">
             android:layout_toRightOf="@+id/spinner_Prcode_titre"/>
 
         <TextView
-            android:id="@+id/spinner_Prcode_titre"
+            android:id="@+id/spinner_Client_titre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/OrdDate"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:text="Client"
+            android:textSize="16sp" />
+
+
+        <Spinner
+            android:id="@+id/spinner_Prcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_Client"
+            android:layout_marginEnd="32dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/spinner_Prcode_titre"
+            android:layout_toRightOf="@+id/spinner_Prcode_titre"/>
+
+        <TextView
+            android:id="@+id/spinner_Prcode_titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_Client_titre"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="40dp"
             android:layout_marginStart="40dp"

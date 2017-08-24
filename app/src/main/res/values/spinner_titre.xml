@@ -10,4 +10,20 @@
         <item>Francais</item>
         <item>Arabic</item>
     </string-array>
+
+
+    <string-array name="spinner_transfer">
+        <item>Transfer</item>
+    </string-array>
+
+
+    <string-array name="spinner_invoice">
+        <item>Invoice</item>
+    </string-array>
+
+    <string-array name="spinner_Transaction">
+        <item>Entry</item>
+        <item>Adjustment Minus</item>
+        <item>Adjustment Plus</item>
+    </string-array>
 </resources>

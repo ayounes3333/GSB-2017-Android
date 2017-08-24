@@ -3,7 +3,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
+    tools:context="com.zaita.aliyounes.gsbvc2017.activities.transfer">
 
 <android.support.v4.widget.NestedScrollView
     android:id="@+id/nestedScrollView_data"
@@ -25,7 +25,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/ajouter_transaction"
+            android:text="Transfer"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -52,7 +52,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginLeft="40dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            android:text="@string/branch"
+            android:text="From Branch"
             android:textSize="16sp" />
 
 
@@ -70,7 +70,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/spinner_Trcode_Titre"
             android:layout_toRightOf="@+id/spinner_Trcode_Titre"
-            android:entries="@array/spinner_Transaction"/>
+            android:entries="@array/spinner_transfer"/>
 
         <TextView
             android:id="@+id/spinner_Trcode_Titre"
@@ -183,6 +183,31 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
                 android:ems="10"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spinner_Brcodeto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/OrdQty"
+            android:layout_marginEnd="32dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/spinner_Brcode_titre"
+            android:layout_toRightOf="@+id/spinner_Brcode_titre"/>
+
+        <TextView
+            android:id="@+id/spinner_Brcode_titre_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/OrdQty"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:text="TO Branch"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
