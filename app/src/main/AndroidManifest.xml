@@ -60,7 +60,8 @@
             android:name=".activities.RegisterActivity"
             android:label="@string/register"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.Ajouter_transaction"></activity>
+        <activity android:name=".activities.Ajouter_transaction" />
+        <activity android:name=".invoice"></activity>
     </application>
 
 </manifest>

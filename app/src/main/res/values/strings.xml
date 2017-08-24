@@ -81,4 +81,6 @@
     <string name="transaction_code">Transaction Code</string>
     <string name="ajouter_transaction">Ajouter Transaction</string>
     <string name="branch">Branch</string>
+    <string name="invoice">Invoice</string>
+    <string name="invoice_type">Invoice Type</string>
 </resources>

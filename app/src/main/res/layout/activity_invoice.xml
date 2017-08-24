@@ -3,7 +3,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
+tools:context="com.zaita.aliyounes.gsbvc2017.invoice">
 
 <android.support.v4.widget.NestedScrollView
     android:id="@+id/nestedScrollView_data"
@@ -25,7 +25,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/ajouter_transaction"
+            android:text="@string/invoice"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -57,7 +57,6 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
 
 
 
-
         <Spinner
             android:id="@+id/spinner_Trcode"
             android:layout_width="match_parent"
@@ -80,7 +79,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginLeft="40dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            android:text="@string/transaction_code"
+            android:text="@string/invoice_type"
             android:textSize="16sp" />
 
         <android.support.design.widget.TextInputLayout
@@ -93,7 +92,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:hint="Transaction Number">
+            android:hint="Invoice Number">
 
             <EditText
                 android:id="@+id/OrdNum_text"
@@ -117,7 +116,7 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:hint="Transaction Date">
+            android:hint="Invoice Date">
 
             <EditText
                 android:id="@+id/OrdDate_text"
@@ -130,6 +129,10 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
                 android:ems="10"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
+
+
+
+
 
         <Spinner
             android:id="@+id/spinner_Prcode"
@@ -156,9 +159,6 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
             android:text="@string/product"
             android:textSize="16sp" />
 
-
-
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/OrdQty"
             android:layout_width="match_parent"
@@ -182,6 +182,104 @@ tools:context="com.zaita.aliyounes.gsbvc2017.activities.Ajouter_transaction">
                 android:ems="10"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Selprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/OrdQty"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Selling Price">
+
+            <EditText
+                android:id="@+id/Selprice_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Selprice"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Value">
+
+            <EditText
+                android:id="@+id/Value_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Value"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Discount">
+
+            <EditText
+                android:id="@+id/Discount_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Net"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Discount"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Net">
+
+            <EditText
+                android:id="@+id/Net_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
