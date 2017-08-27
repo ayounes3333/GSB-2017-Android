@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 import com.zaita.aliyounes.gsbvc2017.helpers.ColorHelper;
+import com.zaita.aliyounes.gsbvc2017.helpers.TextUtils;
 import com.zaita.aliyounes.gsbvc2017.pojos.Product;
 
 import java.util.List;
@@ -73,8 +74,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             textView_productType.setText(product.getTypePr());
             textView_productFamille.setText(product.getFamilyPr());
             textView_productSaison.setText(product.getSeasonPr());
-            textView_productPrixRevient.setText(product.getCostPrice());
-            textView_productPrixVent.setText(product.getSellingPrice());
+            textView_productPrixRevient.setText(TextUtils.formatPrice(product.getCostPrice()));
+            textView_productPrixVent.setText(TextUtils.formatPrice(product.getSellingPrice()));
             linearLayout_iconBackground.setBackgroundColor(ColorHelper.getRandomColor());
             cardView_product.setOnClickListener(new View.OnClickListener() {
                 @Override

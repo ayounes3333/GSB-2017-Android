@@ -1,5 +1,12 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.zaita.aliyounes.gsbvc2017.helpers.JsonHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Elie Ohanian on 7/17/2017.
  */
@@ -9,26 +16,30 @@ public class Product {
     private int CodePr;
     private String BarCodePr;
     private String NamePr;
-    private String TypePr;
+    private int TypePr;
     private String FamilyPr;
-    private String StatusPr;
+    private boolean StatusPr;
     private String MadeInPr;
     private int CodeBr;
-    private String CostPrice;
-    private String SellingPrice;
+    private int CostPrice;
+    private int SellingPrice;
     private int CodeSupBrand;
     private String SeasonPr;
     private String CreationDatePr;
     private String CreationUserPr;
 
     //Constructor for dummy products
-    public Product(String namePr, String typePr, String familyPr, String costPrice, String sellingPrice, String seasonPr) {
+    public Product(String namePr, int typePr, String familyPr, int costPrice, int sellingPrice, String seasonPr) {
         NamePr = namePr;
         TypePr = typePr;
         FamilyPr = familyPr;
         CostPrice = costPrice;
         SellingPrice = sellingPrice;
         SeasonPr = seasonPr;
+    }
+
+    public Product() {
+
     }
 
 
@@ -66,11 +77,11 @@ public class Product {
         NamePr = namePr;
     }
 
-    public String getTypePr() {
+    public int getTypePr() {
         return TypePr;
     }
 
-    public void setTypePr(String typePr) {
+    public void setTypePr(int typePr) {
         TypePr = typePr;
     }
 
@@ -82,11 +93,11 @@ public class Product {
         FamilyPr = familyPr;
     }
 
-    public String getStatusPr() {
+    public boolean getStatusPr() {
         return StatusPr;
     }
 
-    public void setStatusPr(String statusPr) {
+    public void setStatusPr(boolean statusPr) {
         StatusPr = statusPr;
     }
 
@@ -106,19 +117,19 @@ public class Product {
         CodeBr = codeBr;
     }
 
-    public String getCostPrice() {
+    public int getCostPrice() {
         return CostPrice;
     }
 
-    public void setCostPrice(String costPrice) {
+    public void setCostPrice(int costPrice) {
         CostPrice = costPrice;
     }
 
-    public String getSellingPrice() {
+    public int getSellingPrice() {
         return SellingPrice;
     }
 
-    public void setSellingPrice(String sellingPrice) {
+    public void setSellingPrice(int sellingPrice) {
         SellingPrice = sellingPrice;
     }
 
@@ -154,7 +165,57 @@ public class Product {
         CreationUserPr = creationUserPr;
     }
 
+    public static class ProductsListParser {
+        public static List<Product> fromJsonArray(JsonArray jsonArray) {
+            List<Product> products = new ArrayList<>();
+            for(JsonElement element : jsonArray) {
+                products.add(ProductParser.fromJsonElement(element));
+            }
+            return products;
+        }
+    }
 
+    public static class ProductParser {
+        public static Product fromJsonElement(JsonElement jsonElement) {
+            Product product = new Product();
+            if(!JsonHelper.isNull(jsonElement ,"prBarCode")) {
+                product.setBarCodePr(jsonElement.getAsJsonObject().get("prBarCode").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prCode")) {
+                product.setCodeBr(jsonElement.getAsJsonObject().get("prCode").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prType")) {
+                product.setTypePr(jsonElement.getAsJsonObject().get("prType").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"costPrice")) {
+                product.setCostPrice(jsonElement.getAsJsonObject().get("costPrice").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"sellingPrice")) {
+                product.setSellingPrice(jsonElement.getAsJsonObject().get("sellingPrice").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prName")) {
+                product.setNamePr(jsonElement.getAsJsonObject().get("prName").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prFamily")) {
+                product.setFamilyPr(jsonElement.getAsJsonObject().get("prFamily").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"brand")) {
+                Brand brand = Brand.BrandParser.fromJsonElement(jsonElement.getAsJsonObject().get("brand"));
+                product.setCodeBr(brand.getCodeBrd());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"brand")) {
+                Supplier supplier = Supplier.SupplierParser.fomJsonElement(jsonElement.getAsJsonObject().get("brand"));
+                product.setCodeSupBrand(supplier.getCodeSup());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prSeason")) {
+                product.setSeasonPr(jsonElement.getAsJsonObject().get("prSeason").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"prStatus")) {
+                product.setStatusPr(jsonElement.getAsJsonObject().get("prStatus").getAsBoolean());
+            }
+            return product;
+        }
+    }
 
 
 

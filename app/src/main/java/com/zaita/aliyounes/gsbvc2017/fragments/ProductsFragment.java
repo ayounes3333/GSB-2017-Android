@@ -55,12 +55,12 @@ public class ProductsFragment extends Fragment {
     //Create dummy Products
     private List<Product> getDummyProducts() {
         List<Product> dummyProducts = new ArrayList<>();
-        dummyProducts.add(new Product("Product 1" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
-        dummyProducts.add(new Product("Product 2" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
-        dummyProducts.add(new Product("Product 3" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
-        dummyProducts.add(new Product("Product 4" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
-        dummyProducts.add(new Product("Product 5" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
-        dummyProducts.add(new Product("Product 6" , "type product 1" , "Famille 1" , "$0.00" , "$0.00" , "Automne"));
+        dummyProducts.add(new Product("Product 1" , 1 , "Famille 1" , 10 , 11 , "Automne"));
+        dummyProducts.add(new Product("Product 2" , 1 , "Famille 1" , 10 , 11 , "Automne"));
+        dummyProducts.add(new Product("Product 3" , 1 , "Famille 1" , 10 , 11 , "Automne"));
+        dummyProducts.add(new Product("Product 4" , 1 , "Famille 1" , 10 , 11 , "Automne"));
+        dummyProducts.add(new Product("Product 5" , 1 , "Famille 1" , 10 , 11 , "Automne"));
+        dummyProducts.add(new Product("Product 6" , 1 , "Famille 1" , 10 , 11 , "Automne"));
         return dummyProducts;
     }
 }

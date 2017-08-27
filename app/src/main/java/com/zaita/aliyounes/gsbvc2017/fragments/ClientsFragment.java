@@ -5,16 +5,26 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.activities.AjouteClientActivity;
 import com.zaita.aliyounes.gsbvc2017.adapters.ClientsAdapter;
+import com.zaita.aliyounes.gsbvc2017.network.apis.ClientsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.pojos.Client;
 
+import java.io.IOException;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Chawach on 8/14/2017.
@@ -24,6 +34,8 @@ public class ClientsFragment extends Fragment {
     public static final String TAG = ClientsFragment.class.getSimpleName();
     RecyclerView recyclerView_clients;
     ClientsAdapter adapter;
+    CompositeDisposable compositeDisposable;
+    List<Client> clients;
     public ClientsFragment() {
         // Required empty public constructor
     }
@@ -38,6 +50,10 @@ public class ClientsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        compositeDisposable = new CompositeDisposable();
+        clients = new ArrayList<>();
+        clients.addAll(getDummyClients()); //FIXME: remove this line ant the comment below to test API
+        //fetchClients();
         setupViews(view);
     }
     private void setupViews(View rootView) {
@@ -47,7 +63,7 @@ public class ClientsFragment extends Fragment {
 
     //Setup the list
     private void setupRecyclerView() {
-        adapter = new ClientsAdapter(getDummyClients());
+        adapter = new ClientsAdapter(clients);
         recyclerView_clients.setAdapter(adapter);
         recyclerView_clients.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
     }
@@ -62,5 +78,58 @@ public class ClientsFragment extends Fragment {
         dummyClients.add(new Client("Client 5" , "00961 1 123456" , "+961 76 123 456" , "Mr" , "Beirut - Dahye"      , "client5@example.com"));
         dummyClients.add(new Client("Client 6" , "00961 1 123456" , "+961 76 123 456" , "Mr" , "Beirut - Sen El Fil" , "client6@example.com"));
         return dummyClients;
+    }
+    //Get All Clients from the server
+    private void fetchClients() {
+        ClientsNetworkCalls.getAllClients().subscribe(new Observer<List<Client>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                compositeDisposable.add(d);
+            }
+            //Called when the request succeed
+            @Override
+            public void onNext(List<Client> value) {
+                //Value is the return of the API call
+                //In this case it is a list of clients
+                //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
+                Log.i("Get Clients" , value.size()+" Client");
+                clients.addAll(value);
+                adapter.notifyDataSetChanged();
+            }
+
+            //Called if the request fail
+            @Override
+            public void onError(Throwable e) {
+                Log.e("Add Client" , "Error adding new client" , e);
+                if(e instanceof SocketException || e instanceof IOException) {
+                    Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
+                } else if (e instanceof Exception) {
+                    Toast.makeText(getContext() , e.getMessage() , Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        compositeDisposable.dispose();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        compositeDisposable = new CompositeDisposable();
     }
 }

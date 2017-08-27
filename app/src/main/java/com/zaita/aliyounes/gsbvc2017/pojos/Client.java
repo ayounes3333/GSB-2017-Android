@@ -1,20 +1,27 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.zaita.aliyounes.gsbvc2017.helpers.JsonHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Elie Ohanian on 7/17/2017.
  */
 
 public class Client {
-    private int Client;
+    private int ID;
     private String NameClt;
     private String TelClt;
     private String MobClt;
     private String TitleClt;
-    private String CatClt;
+    private boolean CatClt;
     private String AddressClt;
     private String EmailClt;
     private String StatusClt;
-    private String SendSms;
+    private boolean SendSms;
     private String CreationDateClt;
     private String CreationUserClt;
 
@@ -27,12 +34,16 @@ public class Client {
         EmailClt = emailClt;
     }
 
-    public int getClient() {
-        return Client;
+    public Client() {
+
     }
 
-    public void setClient(int client) {
-        Client = client;
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getNameClt() {
@@ -67,11 +78,11 @@ public class Client {
         TitleClt = titleClt;
     }
 
-    public String getCatClt() {
+    public boolean getCatClt() {
         return CatClt;
     }
 
-    public void setCatClt(String catClt) {
+    public void setCatClt(boolean catClt) {
         CatClt = catClt;
     }
 
@@ -99,11 +110,11 @@ public class Client {
         StatusClt = statusClt;
     }
 
-    public String getSendSms() {
+    public boolean getSendSms() {
         return SendSms;
     }
 
-    public void setSendSms(String sendSms) {
+    public void setSendSms(boolean sendSms) {
         SendSms = sendSms;
     }
 
@@ -123,9 +134,41 @@ public class Client {
         CreationUserClt = creationUserClt;
     }
 
+    public static class ClientsListParser {
+        public static List<Client> fromJsonArray(JsonArray jsonArray) {
+            List<Client> clients = new ArrayList<>();
+            for(JsonElement element : jsonArray) {
+                clients.add(ClientParser.fromJsonElement(element));
+            }
+            return clients;
+        }
+    }
 
-
-
-
-
+    public static class ClientParser {
+        public static Client fromJsonElement(JsonElement jsonElement) {
+            Client client = new Client();
+            if(!JsonHelper.isNull(jsonElement ,"cltTitle")) {
+                client.setTitleClt(jsonElement.getAsJsonObject().get("cltTitle").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"cltCode")) {
+                client.setID(jsonElement.getAsJsonObject().get("cltCode").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"cltName")) {
+                client.setNameClt(jsonElement.getAsJsonObject().get("cltName").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"cltEmail")) {
+                client.setEmailClt(jsonElement.getAsJsonObject().get("cltEmail").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"sendMessage")) {
+                client.setSendSms(jsonElement.getAsJsonObject().get("sendMessage").getAsBoolean());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"cltMobile")) {
+                client.setMobClt(jsonElement.getAsJsonObject().get("cltMobile").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"sendCatalog")) {
+                client.setCatClt(jsonElement.getAsJsonObject().get("sendCatalog").getAsBoolean());
+            }
+            return client;
+        }
+    }
 }

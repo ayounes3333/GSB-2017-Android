@@ -1,5 +1,8 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
+import com.google.gson.JsonElement;
+import com.zaita.aliyounes.gsbvc2017.helpers.JsonHelper;
+
 /**
  * Created by Elie Ohanian on 7/17/2017.
  */
@@ -23,6 +26,10 @@ public class Supplier {
         NameSup = nameSup;
         MobSup = mobSup;
         AddressSup = addressSup;
+    }
+
+    public Supplier() {
+
     }
 
     public int getCodeSup() {
@@ -120,13 +127,28 @@ public class Supplier {
     }
 
 
-
-
-
-
-
-
-
-
-
+    public static class SupplierParser {
+        public static Supplier fomJsonElement(JsonElement element) {
+            Supplier supplier = new Supplier();
+            if(JsonHelper.isNull(element, "supCode")) {
+                supplier.setCodeSup(element.getAsJsonObject().get("supCode").getAsInt());
+            }
+            if(JsonHelper.isNull(element, "supName")) {
+                supplier.setNameSup(element.getAsJsonObject().get("supName").getAsString());
+            }
+            if(JsonHelper.isNull(element, "supTel")) {
+                supplier.setTelSup(element.getAsJsonObject().get("supTel").getAsString());
+            }
+            if(JsonHelper.isNull(element, "supMobile")) {
+                supplier.setMobSup(element.getAsJsonObject().get("supMobile").getAsString());
+            }
+            if(JsonHelper.isNull(element, "supAddress")) {
+                supplier.setAddressSup(element.getAsJsonObject().get("supAddress").getAsString());
+            }
+            if(JsonHelper.isNull(element, "supEmail")) {
+                supplier.setEmailSup(element.getAsJsonObject().get("supEmail").getAsString());
+            }
+            return supplier;
+        }
+    }
 }

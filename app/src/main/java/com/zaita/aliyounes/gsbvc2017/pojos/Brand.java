@@ -1,5 +1,12 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.zaita.aliyounes.gsbvc2017.helpers.JsonHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Elie Ohanian on 7/17/2017.
  */
@@ -7,12 +14,16 @@ package com.zaita.aliyounes.gsbvc2017.pojos;
 public class Brand {
     private int CodeBrd;
     private String NameBrd;
-    private String StatusBrd;
+    private boolean StatusBrd;
     private String CreationDateBrd;
     private String CreationUserBrd;
 
     public Brand(String name) { //Constructor for dummy brands
         this.NameBrd = name;
+    }
+
+    public Brand() {
+
     }
 
     public int getCodeBrd() {
@@ -31,11 +42,11 @@ public class Brand {
         NameBrd = nameBrd;
     }
 
-    public String getStatusBrd() {
+    public boolean getStatusBrd() {
         return StatusBrd;
     }
 
-    public void setStatusBrd(String statusBrd) {
+    public void setStatusBrd(boolean statusBrd) {
         StatusBrd = statusBrd;
     }
 
@@ -55,6 +66,30 @@ public class Brand {
         CreationUserBrd = creationUserBrd;
     }
 
+    public static class BrandsListParser {
+        public static List<Brand> fromJsonArray(JsonArray jsonArray) {
+            List<Brand> brands = new ArrayList<>();
+            for(JsonElement element : jsonArray) {
+                brands.add(BrandParser.fromJsonElement(element));
+            }
+            return brands;
+        }
+    }
 
+    public static class BrandParser {
+        public static Brand fromJsonElement(JsonElement jsonElement) {
+            Brand brand = new Brand();
+            if(!JsonHelper.isNull(jsonElement ,"brdCode")) {
+                brand.setCodeBrd(jsonElement.getAsJsonObject().get("brdCode").getAsInt());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"brdName")) {
+                brand.setNameBrd(jsonElement.getAsJsonObject().get("brdName").getAsString());
+            }
+            if(!JsonHelper.isNull(jsonElement ,"brdStatus")) {
+                brand.setStatusBrd(jsonElement.getAsJsonObject().get("brdStatus").getAsBoolean());
+            }
+            return brand;
+        }
+    }
 
 }
