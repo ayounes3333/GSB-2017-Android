@@ -1,7 +1,11 @@
 package com.zaita.aliyounes.gsbvc2017.pojos;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.zaita.aliyounes.gsbvc2017.helpers.JsonHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Elie Ohanian on 7/17/2017.
@@ -127,6 +131,15 @@ public class Supplier {
     }
 
 
+    public static class SuppliersListParser {
+        public static List<Supplier> fromJsonArray(JsonArray jsonArray) {
+            List<Supplier> suppliers= new ArrayList<>();
+            for(JsonElement element : jsonArray) {
+                suppliers.add(Supplier.SupplierParser.fomJsonElement(element));
+            }
+            return suppliers;
+        }
+    }
     public static class SupplierParser {
         public static Supplier fomJsonElement(JsonElement element) {
             Supplier supplier = new Supplier();
