@@ -104,4 +104,24 @@ public class UrlManager {
         Log.i("Add Supplier URL" , uri.toString());
         return uri.toString();
     }
+
+    public static String getAllTransactionsURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Order")
+                .appendPath("all")
+                .build();
+        Log.i("Get All Transaction URL" , uri.toString());
+        return uri.toString();
+    }
+    public static String addTransationURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Order")
+                .appendPath("add")
+                .build();
+        Log.i("Add Transaction URL" , uri.toString());
+        return uri.toString();
+    }
+
 }

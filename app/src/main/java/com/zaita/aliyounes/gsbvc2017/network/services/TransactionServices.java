@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.zaita.aliyounes.gsbvc2017.network.datamodels.Order;
 
 
+
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
@@ -17,9 +18,9 @@ import retrofit2.http.Url;
 
 public interface TransactionServices {
     @GET
-    Observable<JsonElement> getAllOrders(@Url String url);
+    Observable<JsonElement> getAllTransaction(@Url String url);
 
     @POST
     @FormUrlEncoded
-    Observable<JsonElement> addOrder(@Url String url, @Body Order order);
+    Observable<JsonElement> addTransaction(@Url String url, @Body Order order);
 }

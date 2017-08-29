@@ -21,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class SuppliersNetworkCalls {
-    public static Observable<List<com.zaita.aliyounes.gsbvc2017.pojos.Supplier>> getAllSuppliers() {
+    public static Observable<List<Supplier>> getAllSuppliers() {
         SuppliersService service = ServiceGenerator.createService(SuppliersService.class);
         return service.getAllSuppliers(UrlManager.getAllSuppliersURL())
                 .flatMap(new Function<JsonElement, Observable<List<Supplier>>>() {
@@ -29,7 +29,7 @@ public class SuppliersNetworkCalls {
                     public Observable<List<Supplier>> apply(JsonElement jsonElement) throws Exception {
                         Log.i("Get All Supplier" , "JSON: "+jsonElement.toString());
                         if(jsonElement.isJsonArray()) {
-                            List<com.zaita.aliyounes.gsbvc2017.pojos.Supplier> suppliers = com.zaita.aliyounes.gsbvc2017.pojos.Supplier.SuppliersListParser.fromJsonArray(jsonElement.getAsJsonArray());
+                            List<Supplier> suppliers = Supplier.SuppliersListParser.fromJsonArray(jsonElement.getAsJsonArray());
                             return Observable.just(suppliers);
                         } else {
                             return Observable.error(new Exception("Expected a JSON Array"));
