@@ -12,16 +12,16 @@ public class Product  implements java.io.Serializable {
 
 
      private Integer prCode;
-     private Brand brand;
-     private Supplier supplier;
+     private String brand;
+     private String supplier;
      private String prBarCode;
      private String prName;
-     private Integer prType;
+     private String prType;
      private String prFamily;
      private boolean prStatus;
      private String prSeason;
-     private Integer costPrice;
-     private Integer sellingPrice;
+     private String costPrice;
+     private String sellingPrice;
      private Set stockProducts = new HashSet(0);
      private Set branchProducts = new HashSet(0);
 
@@ -29,12 +29,12 @@ public class Product  implements java.io.Serializable {
     }
 
 	
-    public Product(Brand brand, Supplier supplier, boolean prStatus) {
+    public Product(String brand, String supplier, boolean prStatus) {
         this.brand = brand;
         this.supplier = supplier;
         this.prStatus = prStatus;
     }
-    public Product(Brand brand, Supplier supplier, String prBarCode, String prName, Integer prType, String prFamily, boolean prStatus, String prSeason, Integer costPrice, Integer sellingPrice, Set stockProducts, Set branchProducts) {
+    public Product(String brand, String supplier, String prBarCode, String prName, String prType, String prFamily, boolean prStatus, String prSeason, String costPrice, String sellingPrice, Set stockProducts, Set branchProducts) {
        this.brand = brand;
        this.supplier = supplier;
        this.prBarCode = prBarCode;
@@ -56,20 +56,21 @@ public class Product  implements java.io.Serializable {
     public void setPrCode(Integer prCode) {
         this.prCode = prCode;
     }
-    public Brand getBrand() {
+    public String getBrand() {
         return this.brand;
     }
-    
+
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    public Supplier getSupplier() {
+    public String getSupplier() {
         return this.supplier;
     }
     
     public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
+
     public String getPrBarCode() {
         return this.prBarCode;
     }
@@ -84,7 +85,7 @@ public class Product  implements java.io.Serializable {
     public void setPrName(String prName) {
         this.prName = prName;
     }
-    public Integer getPrType() {
+    public String getPrType() {
         return this.prType;
     }
     
@@ -112,14 +113,14 @@ public class Product  implements java.io.Serializable {
     public void setPrSeason(String prSeason) {
         this.prSeason = prSeason;
     }
-    public Integer getCostPrice() {
+    public String getCostPrice() {
         return this.costPrice;
     }
     
     public void setCostPrice(String costPrice) {
         this.costPrice = costPrice;
     }
-    public Integer getSellingPrice() {
+    public String getSellingPrice() {
         return this.sellingPrice;
     }
     
