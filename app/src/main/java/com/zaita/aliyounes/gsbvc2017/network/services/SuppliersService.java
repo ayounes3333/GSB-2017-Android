@@ -1,7 +1,6 @@
 package com.zaita.aliyounes.gsbvc2017.network.services;
 
 import com.google.gson.JsonElement;
-import com.zaita.aliyounes.gsbvc2017.network.datamodels.Branch;
 import com.zaita.aliyounes.gsbvc2017.network.datamodels.Supplier;
 
 import io.reactivex.Observable;
