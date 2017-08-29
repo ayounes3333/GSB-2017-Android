@@ -3,14 +3,26 @@ package com.zaita.aliyounes.gsbvc2017.activities;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.network.apis.BrandsNetworkCalls;
+import com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand;
+
+
+import java.io.IOException;
+import java.net.SocketException;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public class AjouteBbrandActivity extends AppCompatActivity {
     private TextInputLayout textInput_nom;
+    private CompositeDisposable compositeDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +59,61 @@ public class AjouteBbrandActivity extends AppCompatActivity {
 
     private void addBrand() {
         //TODO: implement API call
+
+        Brand brand= new Brand();
+        if( textInput_nom.getEditText()          != null ) {
+            brand.setBrdName(textInput_nom.getEditText().getText().toString());
+
+
+            //Call the API
+            BrandsNetworkCalls.addBrand(brand).subscribe(new Observer<Integer>() {
+                @Override
+                public void onSubscribe(Disposable d) {
+                    compositeDisposable.add(d);
+                }
+                //Called when the request succeed
+                @Override
+                public void onNext(Integer value) {
+                    //Value is the return of the API call
+                    //In this case it is the brand ID
+                    //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
+                    Log.i("Add Client" , "Client "+value+" added successfully");
+                    Toast.makeText(AjouteBbrandActivity.this , "Client "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                }
+
+                //Called if the request fail
+                @Override
+                public void onError(Throwable e) {
+                    Log.e("Add Brand" , "Error adding new Brand" , e);
+                    if(e instanceof SocketException || e instanceof IOException) {
+                        Toast.makeText(AjouteBbrandActivity.this , R.string.no_internet , Toast.LENGTH_SHORT).show();
+                    } else if (e instanceof Exception) {
+                        Toast.makeText(AjouteBbrandActivity.this , e.getMessage() , Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onComplete() {
+
+                }
+            });
+        }
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        compositeDisposable.dispose();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        compositeDisposable = new CompositeDisposable();
     }
 }

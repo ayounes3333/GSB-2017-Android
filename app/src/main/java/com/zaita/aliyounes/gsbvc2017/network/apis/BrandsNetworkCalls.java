@@ -41,7 +41,7 @@ public class BrandsNetworkCalls {
                         }
                     }).observeOn(Schedulers.io());
         }
-    public static Observable<Integer> addBranch(com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand brand) {
+    public static Observable<Integer> addBrand(com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand brand) {
         BrandsService service = ServiceGenerator.createService(BrandsService.class);
         return service.addBrand(UrlManager.addBrandURL() , brand)
                 .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
