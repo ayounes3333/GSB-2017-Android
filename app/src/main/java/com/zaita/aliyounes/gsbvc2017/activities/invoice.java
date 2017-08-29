@@ -35,7 +35,7 @@ public class invoice extends AppCompatActivity {
     }
 
     private void setupViews() {
-        textInput_OrdNum      = (TextInputLayout) findViewById(R.id.OrdNum);
+
         textInput_OrdDate     = (TextInputLayout) findViewById(R.id.OrdDate);
         textInput_OrdQty      = (TextInputLayout) findViewById(R.id.OrdQty);
         spinner_Client        = (Spinner) findViewById(R.id.spinner_Client);
@@ -62,7 +62,7 @@ public class invoice extends AppCompatActivity {
     }
 
     private boolean checkFields() {
-        if( textInput_OrdNum.getEditText()       != null &&
+        if(
                 textInput_OrdQty.getEditText()   != null &&
                 textInput_OrdDate.getEditText()  != null &&
                 textInput_Net.getEditText()      != null &&
@@ -70,10 +70,7 @@ public class invoice extends AppCompatActivity {
                 textInput_Selprice.getEditText() != null
                 ) {
 
-            if (textInput_OrdNum.getEditText().getText().toString().equalsIgnoreCase("")) {
-                textInput_OrdNum.setError("Le Numero est obligatoire");
-                return false;
-            }
+
             if (textInput_Value.getEditText().getText().toString().equalsIgnoreCase("")) {
                 textInput_Value.setError("Value est obligatoire");
                 return false;

@@ -29,7 +29,7 @@ public class transfer extends AppCompatActivity {
     }
 
     private void setupViews() {
-        textInput_OrdNum    = (TextInputLayout) findViewById(R.id.OrdNum);
+
         textInput_OrdDate    = (TextInputLayout) findViewById(R.id.OrdDate);
         textInput_OrdQty    = (TextInputLayout) findViewById(R.id.OrdQty);
         spinner_Trcode      = (Spinner) findViewById(R.id.spinner_Trcode);
@@ -52,14 +52,10 @@ public class transfer extends AppCompatActivity {
     }
 
     private boolean checkFields() {
-        if( textInput_OrdNum.getEditText()      != null &&
-                textInput_OrdQty.getEditText()  != null &&
+        if( textInput_OrdQty.getEditText()  != null &&
                 textInput_OrdDate.getEditText() != null
                 ) {
-            if (textInput_OrdNum.getEditText().getText().toString().equalsIgnoreCase("")) {
-                textInput_OrdNum.setError("Le Numero est obligatoire");
-                return false;
-            }
+
 
             if (textInput_OrdQty.getEditText().getText().toString().equalsIgnoreCase("")) {
                 textInput_OrdQty.setError("Quantity est obligatoire");

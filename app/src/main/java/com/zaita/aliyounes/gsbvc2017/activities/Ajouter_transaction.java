@@ -28,7 +28,7 @@ public class Ajouter_transaction extends AppCompatActivity {
     }
 
     private void setupViews() {
-        textInput_OrdNum    = (TextInputLayout) findViewById(R.id.OrdNum);
+
         textInput_OrdDate    = (TextInputLayout) findViewById(R.id.OrdDate);
         textInput_OrdQty    = (TextInputLayout) findViewById(R.id.OrdQty);
         spinner_Trcode      = (Spinner) findViewById(R.id.spinner_Trcode);
@@ -50,13 +50,13 @@ public class Ajouter_transaction extends AppCompatActivity {
     }
 
     private boolean checkFields() {
-        if( textInput_OrdNum.getEditText()      != null &&
+        if(
                 textInput_OrdQty.getEditText()  != null &&
                 textInput_OrdDate.getEditText() != null
               ) {
-            if (textInput_OrdNum.getEditText().getText().toString().equalsIgnoreCase("")) {
-                textInput_OrdNum.setError("Le Numero est obligatoire");
-                return false;
+
+            if(spinner_Trcode.getSelectedItem() == null) {
+                Toast.makeText(this, "Selectionner un Transaction", Toast.LENGTH_SHORT).show();
             }
 
             if (textInput_OrdQty.getEditText().getText().toString().equalsIgnoreCase("")) {
@@ -67,9 +67,7 @@ public class Ajouter_transaction extends AppCompatActivity {
                 textInput_OrdDate.setError("Date est obligatoire");
                 return false;
             }
-            if(spinner_Trcode.getSelectedItem() == null) {
-                Toast.makeText(this, "Selectionner un Transaction", Toast.LENGTH_SHORT).show();
-            }
+
             if(spinner_Prcode.getSelectedItem() == null) {
                 Toast.makeText(this, "Selectionner un Product", Toast.LENGTH_SHORT).show();
             }

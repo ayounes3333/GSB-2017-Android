@@ -84,35 +84,13 @@ android:layout_height="match_parent"
             android:text="Transfer Code"
             android:textSize="16sp" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/OrdNum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_Trcode"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="Transfer Number">
 
-            <EditText
-                android:id="@+id/OrdNum_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/OrdDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/OrdNum"
+            android:layout_below="@+id/spinner_Trcode"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
