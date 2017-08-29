@@ -39,7 +39,7 @@ public class PoductsNetworkCalls {
                     }
                 }).observeOn(Schedulers.io());
     }
-    public static Observable<Integer> addBranch(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product ) {
+    public static Observable<Integer> addProduct(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product ) {
         ProductsService service = ServiceGenerator.createService(ProductsService.class);
         return service.addProduct(UrlManager.addProductURL() , product)
                 .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {

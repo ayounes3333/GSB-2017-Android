@@ -23,7 +23,7 @@ public class Ajouter_transaction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajoute_client);
+        setContentView(R.layout.activity_ajouter_transaction);
         setupViews();
     }
 

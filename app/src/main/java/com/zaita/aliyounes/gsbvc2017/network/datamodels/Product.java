@@ -60,14 +60,14 @@ public class Product  implements java.io.Serializable {
         return this.brand;
     }
     
-    public void setBrand(Brand brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
     public Supplier getSupplier() {
         return this.supplier;
     }
     
-    public void setSupplier(Supplier supplier) {
+    public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
     public String getPrBarCode() {
@@ -88,7 +88,7 @@ public class Product  implements java.io.Serializable {
         return this.prType;
     }
     
-    public void setPrType(Integer prType) {
+    public void setPrType(String prType) {
         this.prType = prType;
     }
     public String getPrFamily() {
@@ -116,14 +116,14 @@ public class Product  implements java.io.Serializable {
         return this.costPrice;
     }
     
-    public void setCostPrice(Integer costPrice) {
+    public void setCostPrice(String costPrice) {
         this.costPrice = costPrice;
     }
     public Integer getSellingPrice() {
         return this.sellingPrice;
     }
     
-    public void setSellingPrice(Integer sellingPrice) {
+    public void setSellingPrice(String sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
     public Set getStockProducts() {
