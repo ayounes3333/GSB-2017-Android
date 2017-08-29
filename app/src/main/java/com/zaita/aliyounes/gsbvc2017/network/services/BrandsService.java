@@ -17,7 +17,7 @@ import retrofit2.http.Url;
 
 public interface BrandsService {
     @GET
-    Observable<JsonElement> getAllBrancdes(@Url String url);
+    Observable<JsonElement> getAllBrands(@Url String url);
 
     @POST
     @FormUrlEncoded
