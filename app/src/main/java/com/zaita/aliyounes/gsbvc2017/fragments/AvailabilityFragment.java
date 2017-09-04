@@ -56,12 +56,12 @@ public class AvailabilityFragment extends Fragment {
     //Create dummy branches
     private List<Availability> getDummyAvailabilities() {
         List<Availability> dummyAvailabilities = new ArrayList<>();
-        dummyAvailabilities.add(new Availability("Brand 1" , "Product 1" , 123));
-        dummyAvailabilities.add(new Availability("Brand 2" , "Product 2" , 123));
-        dummyAvailabilities.add(new Availability("Brand 3" , "Product 3" , 123));
-        dummyAvailabilities.add(new Availability("Brand 4" , "Product 4" , 123));
-        dummyAvailabilities.add(new Availability("Brand 5" , "Product 5" , 123));
-        dummyAvailabilities.add(new Availability("Brand 6" , "Product 6" , 123));
+        dummyAvailabilities.add(new Availability("Branch 1" , "Product 1" , 123));
+        dummyAvailabilities.add(new Availability("Branch 2" , "Product 2" , 123));
+        dummyAvailabilities.add(new Availability("Branch 3" , "Product 3" , 123));
+        dummyAvailabilities.add(new Availability("Branch 4" , "Product 4" , 123));
+        dummyAvailabilities.add(new Availability("Branch 5" , "Product 5" , 123));
+        dummyAvailabilities.add(new Availability("Branch 6" , "Product 6" , 123));
         return dummyAvailabilities;
     }
 }
