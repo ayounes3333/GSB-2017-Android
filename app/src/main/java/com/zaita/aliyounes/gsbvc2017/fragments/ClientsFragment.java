@@ -120,16 +120,4 @@ public class ClientsFragment extends Fragment {
         super.onDestroy();
         compositeDisposable.dispose();
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-    }
 }

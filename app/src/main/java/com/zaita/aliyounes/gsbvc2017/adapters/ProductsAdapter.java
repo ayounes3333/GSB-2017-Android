@@ -71,7 +71,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         //Bind data to List item
         void bind(Product product) {
             textView_productName.setText(product.getNamePr());
-            textView_productType.setText(product.getTypePr());
+            textView_productType.setText(String.valueOf(product.getTypePr()));
             textView_productFamille.setText(product.getFamilyPr());
             textView_productSaison.setText(product.getSeasonPr());
             textView_productPrixRevient.setText(TextUtils.formatPrice(product.getCostPrice()));

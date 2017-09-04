@@ -13,6 +13,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -35,7 +36,7 @@ public class SuppliersNetworkCalls {
                             return Observable.error(new Exception("Expected a JSON Array"));
                         }
                     }
-                }).observeOn(Schedulers.io());
+                }).observeOn(AndroidSchedulers.mainThread());
     }
     public static Observable<Integer> addSupplier(com.zaita.aliyounes.gsbvc2017.network.datamodels.Supplier supplier) {
         SuppliersService service = ServiceGenerator.createService(SuppliersService.class);
@@ -50,6 +51,6 @@ public class SuppliersNetworkCalls {
                             return Observable.error(new Exception("Invalid Supplier code format"));
                         }
                     }
-                }).observeOn(Schedulers.io());
+                }).observeOn(AndroidSchedulers.mainThread());
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -39,7 +40,7 @@ public class BrandsNetworkCalls {
                                 return Observable.error(new Exception("Expected a JSON Array"));
                             }
                         }
-                    }).observeOn(Schedulers.io());
+                    }).observeOn(AndroidSchedulers.mainThread());
         }
     public static Observable<Integer> addBrand(com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand brand) {
         BrandsService service = ServiceGenerator.createService(BrandsService.class);
@@ -54,6 +55,6 @@ public class BrandsNetworkCalls {
                             return Observable.error(new Exception("Invalid Brand code format"));
                         }
                     }
-                }).observeOn(Schedulers.io());
+                }).observeOn(AndroidSchedulers.mainThread());
     }
 }

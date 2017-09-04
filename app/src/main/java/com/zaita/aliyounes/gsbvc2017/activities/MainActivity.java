@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.fragments.ActivitiesFragment;
+import com.zaita.aliyounes.gsbvc2017.fragments.AvailabilityFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.BranchesFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.BrandsFragment;
 import com.zaita.aliyounes.gsbvc2017.fragments.ClientsFragment;
@@ -110,6 +112,31 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
+            case R.id.nav_activities : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new ActivitiesFragment(),
+                                ActivitiesFragment.TAG)
+                        .commit();
+                fab.setVisibility(View.GONE);
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.branches);
+            }
+            break;
+            case R.id.nav_availabilities : {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout_fragment_container,
+                                new AvailabilityFragment(),
+                                AvailabilityFragment.TAG)
+                        .commit();
+
+                fab.setVisibility(View.GONE);
+                if(getSupportActionBar() != null)
+                    getSupportActionBar().setTitle(R.string.branches);
+            }
+            break;
             case R.id.nav_branches : {
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -117,6 +144,7 @@ public class MainActivity extends AppCompatActivity
                                 new BranchesFragment(),
                                 BranchesFragment.TAG)
                         .commit();
+                fab.setVisibility(View.VISIBLE);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -134,6 +162,7 @@ public class MainActivity extends AppCompatActivity
                                 new BrandsFragment(),
                                 BrandsFragment.TAG)
                         .commit();
+                fab.setVisibility(View.VISIBLE);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -151,6 +180,7 @@ public class MainActivity extends AppCompatActivity
                                 new ClientsFragment(),
                                 ClientsFragment.TAG)
                         .commit();
+                fab.setVisibility(View.VISIBLE);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -168,6 +198,7 @@ public class MainActivity extends AppCompatActivity
                                 new ProductsFragment(),
                                 ProductsFragment.TAG)
                         .commit();
+                fab.setVisibility(View.VISIBLE);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -185,6 +216,7 @@ public class MainActivity extends AppCompatActivity
                                 new SuppliersFragment(),
                                 SuppliersFragment.TAG)
                         .commit();
+                fab.setVisibility(View.VISIBLE);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

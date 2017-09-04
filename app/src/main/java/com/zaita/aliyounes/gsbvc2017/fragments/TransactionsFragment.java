@@ -5,14 +5,27 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.network.apis.BranchesNetworkCalls;
+import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
+
+import java.io.IOException;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +37,7 @@ public class TransactionsFragment extends Fragment {
     private Spinner spinner_Brcode;
     private Spinner spinner_Prcode;
     private Spinner spinner_Trcode;
+    private CompositeDisposable compositeDisposable;
 
     public TransactionsFragment() {
         // Required empty public constructor
@@ -40,7 +54,9 @@ public class TransactionsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        compositeDisposable = new CompositeDisposable();
         setupViews(view);
+        populateBranches(); //...
     }
 
     private void setupViews(View rootView) {
@@ -95,7 +111,45 @@ public class TransactionsFragment extends Fragment {
         return false;
     }
 
+    private void populateBranches() {
+        BranchesNetworkCalls.getAllBranches().subscribe(new Observer<List<Branch>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                compositeDisposable.add(d);
+            }
 
+            @Override
+            public void onNext(List<Branch> value) {
+                ArrayList<String> date = new ArrayList<>();
+                for (Branch branch : value) {
+                    date.add(String.valueOf(branch.getCodeBr()));
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, date);
+                spinner_Brcode.setAdapter(adapter);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e("Get Branches" , "Error getting branches" , e);
+                if(e instanceof SocketException || e instanceof IOException) {
+                    Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
+                } else if (e instanceof Exception) {
+                    Toast.makeText(getContext() , e.getMessage() , Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
 
     private void addTransaction() {
         //TODO: implement API call

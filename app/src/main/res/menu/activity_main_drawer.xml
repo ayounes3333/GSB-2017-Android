@@ -4,8 +4,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_activities"
-            android:icon="@drawable/ic_branch"
+            android:icon="@drawable/ic_transferes"
             android:title="@string/activities" />
+        <item
+            android:id="@+id/nav_availabilities"
+            android:icon="@drawable/ic_disponibilite"
+            android:title="@string/availability" />
         <item
             android:id="@+id/nav_branches"
             android:icon="@drawable/ic_branch"

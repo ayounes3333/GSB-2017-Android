@@ -19,6 +19,8 @@ import com.zaita.aliyounes.gsbvc2017.adapters.ActivityTabsPagerAdapter;
 public class ActivitiesFragment extends Fragment {
 
 
+    public static final String TAG = ActivitiesFragment.class.getSimpleName();
+
     public ActivitiesFragment() {
         // Required empty public constructor
     }

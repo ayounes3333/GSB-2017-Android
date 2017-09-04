@@ -49,7 +49,7 @@ public class InvoicesFragment extends Fragment {
         textInput_OrdDate     = (TextInputLayout) rootView.findViewById(R.id.OrdDate);
         textInput_OrdQty      = (TextInputLayout) rootView.findViewById(R.id.OrdQty);
         spinner_Client        = (Spinner)         rootView.findViewById(R.id.spinner_Client);
-        textInput_Selprice    = (TextInputLayout) rootView.findViewById(R.id.textInput_sel);
+        textInput_Selprice    = (TextInputLayout) rootView.findViewById(R.id.Selprice);
         textInput_Net         = (TextInputLayout) rootView.findViewById(R.id.Net);
         textInput_Value       = (TextInputLayout) rootView.findViewById(R.id.Value);
         textInput_Discount    = (TextInputLayout) rootView.findViewById(R.id.Discount);

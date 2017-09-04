@@ -38,7 +38,7 @@ public class ClientsNetworkCalls {
                             return Observable.error(new Exception("Expected a JSON Array"));
                         }
                     }
-                }).observeOn(Schedulers.io());
+                }).observeOn(AndroidSchedulers.mainThread());
     }
     public static Observable<Integer> addClient(com.zaita.aliyounes.gsbvc2017.network.datamodels.Client client) {
         ClientsService service = ServiceGenerator.createService(ClientsService.class);
@@ -53,6 +53,6 @@ public class ClientsNetworkCalls {
                             return Observable.error(new Exception("Invalid client code format"));
                         }
                     }
-                }).observeOn(Schedulers.io());
+                }).observeOn(AndroidSchedulers.mainThread());
     }
 }

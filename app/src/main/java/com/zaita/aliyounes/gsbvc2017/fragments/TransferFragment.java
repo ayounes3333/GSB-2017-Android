@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
-import com.zaita.aliyounes.gsbvc2017.activities.transfer;
 
 /**
  * A simple {@link Fragment} subclass.
