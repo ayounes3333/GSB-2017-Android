@@ -3,17 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_activities"
+            android:icon="@drawable/ic_branch"
+            android:title="@string/activities" />
+        <item
             android:id="@+id/nav_branches"
             android:icon="@drawable/ic_branch"
             android:title="@string/branches" />
         <item
-            android:id="@+id/nav_client"
-            android:icon="@drawable/ic_client"
-            android:title="@string/clients" />
-        <item
             android:id="@+id/nav_brands"
             android:icon="@drawable/ic_brand"
             android:title="@string/brands" />
+        <item
+            android:id="@+id/nav_client"
+            android:icon="@drawable/ic_client"
+            android:title="@string/clients" />
         <item
             android:id="@+id/nav_products"
             android:icon="@drawable/ic_product"

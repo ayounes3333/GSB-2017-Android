@@ -84,4 +84,8 @@
     <string name="invoice">Invoice</string>
     <string name="invoice_type">Invoice Type</string>
     <string name="no_internet">No Internet Connection</string>
+    <string name="tab_transactions">Transactions</string>
+    <string name="tab_transfers">Transfers</string>
+    <string name="tab_invoices">Invoices</string>
+    <string name="activities">Activities</string>
 </resources>
