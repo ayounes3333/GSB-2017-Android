@@ -20,6 +20,5 @@ public interface BrandsService {
     Observable<JsonElement> getAllBrands(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addBrand(@Url String url, @Body Brand brand);
 }

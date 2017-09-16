@@ -19,6 +19,5 @@ public interface SuppliersService {
     Observable<JsonElement> getAllSuppliers(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addSupplier(@Url String url, @Body Supplier supplier);
 }

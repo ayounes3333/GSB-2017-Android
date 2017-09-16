@@ -52,8 +52,8 @@ public class ClientsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         compositeDisposable = new CompositeDisposable();
         clients = new ArrayList<>();
-        clients.addAll(getDummyClients()); //FIXME: remove this line ant the comment below to test API
-        //fetchClients();
+        //clients.addAll(getDummyClients()); //FIXME: remove this line ant the comment below to test API
+        fetchClients();
         setupViews(view);
     }
     private void setupViews(View rootView) {

@@ -1,8 +1,22 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zaita.aliyounes.gsbvc2017.fragments.SuppliersFragment">
+
+    <include
+        layout="@layout/no_suppliers_layout"
+        android:visibility="gone"
+        android:id="@+id/relativeLayout_noSuppliers"/>
+    <include
+        layout="@layout/no_internet_layout"
+        android:visibility="gone"
+        android:id="@+id/relativeLayout_noInternet"/>
+    <include
+        layout="@layout/server_error_layout"
+        android:visibility="gone"
+        android:id="@+id/relativeLayout_serverError"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

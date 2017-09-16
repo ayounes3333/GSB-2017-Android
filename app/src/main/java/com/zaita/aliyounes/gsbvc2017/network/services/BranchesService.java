@@ -20,6 +20,5 @@ public interface BranchesService {
     Observable<JsonElement> getAllBranches(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addBranch(@Url String url, @Body Branch branch);
 }

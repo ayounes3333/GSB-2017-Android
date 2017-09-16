@@ -92,4 +92,12 @@
     <string name="brand">Brand:</string>
     <string name="product_titre">Product:</string>
     <string name="quantity">Quantity:</string>
+    <string name="no_branches_found">No Branches Found</string>
+    <string name="no_brands_found">No Brands Found</string>
+    <string name="no_clients_found">No Clients Found</string>
+    <string name="no_products_found">No Products Found</string>
+    <string name="no_suppliers_found">No Suppliers Found</string>
+    <string name="no_availabilities_found">No Data to Show</string>
+    <string name="server_error_message">The Server Has Stumbled! \n We All Have Bad Days</string>
+    <string name="no_connection_message">No Internet Connection</string>
 </resources>

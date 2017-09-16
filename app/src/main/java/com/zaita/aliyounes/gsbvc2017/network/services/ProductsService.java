@@ -19,6 +19,5 @@ public interface ProductsService {
     Observable<JsonElement> getAllProducts(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addProduct(@Url String url, @Body Product product);
 }

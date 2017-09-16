@@ -11,7 +11,7 @@ public class UrlManager {
 
     //TODO: Fill in the details for the server URLs
     public static final String BASE_URL = "http://35.194.131.184:8090/";
-    public static final String BASE_URL_API = BASE_URL + "StockManagement.Services/webresources/application.wadl/";
+    public static final String BASE_URL_API = BASE_URL + "StockManagement.Services/webresources/";
     public static final String BASE_URL_UPLOADS = "";
 
     public static String getAllClientsURL() {

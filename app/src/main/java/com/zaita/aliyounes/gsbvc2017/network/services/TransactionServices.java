@@ -21,6 +21,5 @@ public interface TransactionServices {
     Observable<JsonElement> getAllTransaction(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addTransaction(@Url String url, @Body Order order);
 }

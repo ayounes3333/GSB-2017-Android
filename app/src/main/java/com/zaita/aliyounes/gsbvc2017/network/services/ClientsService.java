@@ -20,6 +20,5 @@ public interface ClientsService {
     Observable<JsonElement> getAllClients(@Url String url);
 
     @POST
-    @FormUrlEncoded
     Observable<JsonElement> addClient(@Url String url , @Body Client client);
 }
