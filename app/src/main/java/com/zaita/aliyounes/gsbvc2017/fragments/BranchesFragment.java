@@ -10,14 +10,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
 import com.zaita.aliyounes.gsbvc2017.adapters.BranchesAdapter;
+import com.zaita.aliyounes.gsbvc2017.application.GSBApplication;
 import com.zaita.aliyounes.gsbvc2017.network.apis.BranchesNetworkCalls;
-import com.zaita.aliyounes.gsbvc2017.network.apis.ClientsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
-import com.zaita.aliyounes.gsbvc2017.pojos.Client;
 
 import java.io.IOException;
 import java.net.SocketException;
@@ -37,6 +37,9 @@ public class BranchesFragment extends Fragment {
     public static final String TAG = BranchesFragment.class.getSimpleName();
     RecyclerView recyclerView_branches;
     BranchesAdapter adapter;
+    RelativeLayout relativeLayout_noInternet;
+    RelativeLayout relativeLayout_serverError;
+    RelativeLayout relativeLayout_noData;
     private List<Branch> branches;
     private CompositeDisposable compositeDisposable;
 
@@ -56,17 +59,24 @@ public class BranchesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         compositeDisposable = new CompositeDisposable();
         branches = new ArrayList<>();
-        fetchClients();
+        if (GSBApplication.isDummyData()) {
+            branches.addAll(getDummyBranches());
+        } else {
+            fetchBranches();
+        }
         setupViews(view);
     }
     private void setupViews(View rootView) {
         recyclerView_branches = (RecyclerView) rootView.findViewById(R.id.recyclerView_branches);
+        relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
+        relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
+        relativeLayout_noData      = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noBranches);
         setupRecyclerView();
     }
 
     //Setup the list
     private void setupRecyclerView() {
-        adapter = new BranchesAdapter(getDummyBranches());
+        adapter = new BranchesAdapter(branches);
         recyclerView_branches.setAdapter(adapter);
         recyclerView_branches.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
     }
@@ -82,7 +92,7 @@ public class BranchesFragment extends Fragment {
         dummyBranches.add(new Branch("Branch 6" , "00961 1 123 456" , "Beirut - Sen El Fil"));
         return dummyBranches;
     }
-    private void fetchClients() {
+    private void fetchBranches() {
         BranchesNetworkCalls.getAllBranches().subscribe(new Observer<List<Branch>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -95,8 +105,17 @@ public class BranchesFragment extends Fragment {
                 //In this case it is a list of branches
                 //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                 Log.i("Get Branches" , value.size()+" Branch");
-                branches.addAll(value);
-                adapter.notifyDataSetChanged();
+                if(value.size() == 0) {
+                    relativeLayout_noData.setVisibility(View.VISIBLE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                } else {
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                    branches.addAll(value);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             //Called if the request fail
@@ -105,8 +124,14 @@ public class BranchesFragment extends Fragment {
                 Log.e("get Branches" , "Error getting branches" , e);
                 if(e instanceof SocketException || e instanceof IOException) {
                     Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
-                } else if (e instanceof Exception) {
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.VISIBLE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                } else {
                     Toast.makeText(getContext() , e.getMessage() , Toast.LENGTH_LONG).show();
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -115,5 +140,16 @@ public class BranchesFragment extends Fragment {
 
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        compositeDisposable = new CompositeDisposable();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
     }
 }

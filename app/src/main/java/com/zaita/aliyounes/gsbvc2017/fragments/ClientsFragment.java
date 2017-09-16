@@ -9,11 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
-import com.zaita.aliyounes.gsbvc2017.activities.AjouteClientActivity;
 import com.zaita.aliyounes.gsbvc2017.adapters.ClientsAdapter;
+import com.zaita.aliyounes.gsbvc2017.application.GSBApplication;
 import com.zaita.aliyounes.gsbvc2017.network.apis.ClientsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.pojos.Client;
 
@@ -34,6 +35,9 @@ public class ClientsFragment extends Fragment {
     public static final String TAG = ClientsFragment.class.getSimpleName();
     RecyclerView recyclerView_clients;
     ClientsAdapter adapter;
+    RelativeLayout relativeLayout_noInternet;
+    RelativeLayout relativeLayout_serverError;
+    RelativeLayout relativeLayout_noData;
     CompositeDisposable compositeDisposable;
     List<Client> clients;
     public ClientsFragment() {
@@ -52,12 +56,18 @@ public class ClientsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         compositeDisposable = new CompositeDisposable();
         clients = new ArrayList<>();
-        //clients.addAll(getDummyClients()); //FIXME: remove this line ant the comment below to test API
-        fetchClients();
+        if (GSBApplication.isDummyData()) {
+            clients.addAll(getDummyClients());
+        } else {
+            fetchClients();
+        }
         setupViews(view);
     }
     private void setupViews(View rootView) {
         recyclerView_clients = (RecyclerView) rootView.findViewById(R.id.recyclerView_clients);
+        relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
+        relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
+        relativeLayout_noData      = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noClients);
         setupRecyclerView();
     }
 
@@ -93,18 +103,33 @@ public class ClientsFragment extends Fragment {
                 //In this case it is a list of clients
                 //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                 Log.i("Get Clients" , value.size()+" Client");
-                clients.addAll(value);
-                adapter.notifyDataSetChanged();
+                if(value.size() == 0) {
+                    relativeLayout_noData.setVisibility(View.VISIBLE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                } else {
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                    clients.addAll(value);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             //Called if the request fail
             @Override
             public void onError(Throwable e) {
-                Log.e("Add Client" , "Error adding new client" , e);
+                Log.e("Get Clients" , "Error getting clients" , e);
                 if(e instanceof SocketException || e instanceof IOException) {
                     Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
-                } else if (e instanceof Exception) {
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.VISIBLE);
+                    relativeLayout_serverError.setVisibility(View.GONE);
+                } else {
                     Toast.makeText(getContext() , e.getMessage() , Toast.LENGTH_LONG).show();
+                    relativeLayout_noData.setVisibility(View.GONE);
+                    relativeLayout_noInternet.setVisibility(View.GONE);
+                    relativeLayout_serverError.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -113,6 +138,12 @@ public class ClientsFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.zaita.aliyounes.gsbvc2017.helpers.PrefUtils;
 import com.zaita.aliyounes.gsbvc2017.network.ServiceGenerator;
 
 /**
@@ -25,8 +26,22 @@ public class GSBApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        //setDummyData();
+        clearDummyData();
         ServiceGenerator.setup();
         Log.i("Setup" , "Complete");
+    }
+
+    public static boolean isDummyData() {
+        return PrefUtils.getBoolean(GSBApplication.getInstance() , "isDummyData" , false);
+    }
+
+    public static void setDummyData() {
+        PrefUtils.setBoolean(GSBApplication.getInstance() , "isDummyData" , true);
+    }
+
+    public static void clearDummyData() {
+        PrefUtils.setBoolean(GSBApplication.getInstance() , "isDummyData" , false);
     }
 
     public boolean checkIfHasNetwork() {
