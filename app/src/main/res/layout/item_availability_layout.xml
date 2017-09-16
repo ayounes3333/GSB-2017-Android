@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_nomBrand_titre"
-                android:text="@string/brand"
+                android:text="Branch"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
             <TextView

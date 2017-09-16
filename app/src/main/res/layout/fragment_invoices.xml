@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zaita.aliyounes.gsbvc2017.activities.invoice">
+    tools:context="com.zaita.aliyounes.gsbvc2017.fragments.InvoicesFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView_data"
@@ -184,7 +184,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -208,7 +208,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -232,7 +232,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -256,7 +256,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -281,7 +281,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
 

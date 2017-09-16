@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zaita.aliyounes.gsbvc2017.activities.transfer">
+    tools:context="com.zaita.aliyounes.gsbvc2017.fragments.TransferFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView_data"
@@ -159,7 +159,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <Spinner
@@ -186,6 +186,9 @@
                 android:layout_marginTop="8dp"
                 android:text="TO Branch"
                 android:textSize="16sp" />
+
+
+
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
