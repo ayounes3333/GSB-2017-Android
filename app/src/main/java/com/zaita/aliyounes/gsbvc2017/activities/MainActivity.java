@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
                         .commit();
                 fab.setVisibility(View.GONE);
                 if(getSupportActionBar() != null)
-                    getSupportActionBar().setTitle(R.string.branches);
+                    getSupportActionBar().setTitle(R.string.activities);
             }
             break;
             case R.id.nav_availabilities : {
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity
 
                 fab.setVisibility(View.GONE);
                 if(getSupportActionBar() != null)
-                    getSupportActionBar().setTitle(R.string.branches);
+                    getSupportActionBar().setTitle(R.string.availability);
             }
             break;
             case R.id.nav_branches : {
