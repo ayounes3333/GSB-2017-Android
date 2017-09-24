@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class ClientsFragment extends Fragment {
     public static final String TAG = ClientsFragment.class.getSimpleName();
     RecyclerView recyclerView_clients;
     ClientsAdapter adapter;
+    ProgressBar progressBarLoadingData;
     RelativeLayout relativeLayout_noInternet;
     RelativeLayout relativeLayout_serverError;
     RelativeLayout relativeLayout_noData;
@@ -54,16 +56,18 @@ public class ClientsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        compositeDisposable = new CompositeDisposable();
         clients = new ArrayList<>();
+        setupViews(view);
+        compositeDisposable = new CompositeDisposable();
         if (GSBApplication.isDummyData()) {
             clients.addAll(getDummyClients());
+            adapter.notifyDataSetChanged();
         } else {
             fetchClients();
         }
-        setupViews(view);
     }
     private void setupViews(View rootView) {
+        progressBarLoadingData = (ProgressBar) rootView.findViewById(R.id.progressBar_loadingData);
         recyclerView_clients = (RecyclerView) rootView.findViewById(R.id.recyclerView_clients);
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
@@ -91,6 +95,7 @@ public class ClientsFragment extends Fragment {
     }
     //Get All Clients from the server
     private void fetchClients() {
+        progressBarLoadingData.setVisibility(View.VISIBLE);
         ClientsNetworkCalls.getAllClients().subscribe(new Observer<List<Client>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -135,7 +140,7 @@ public class ClientsFragment extends Fragment {
 
             @Override
             public void onComplete() {
-
+                progressBarLoadingData.setVisibility(View.GONE);
             }
         });
     }

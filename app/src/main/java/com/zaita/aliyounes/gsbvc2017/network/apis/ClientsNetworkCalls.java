@@ -27,15 +27,19 @@ public class ClientsNetworkCalls {
     public static Observable<List<Client>> getAllClients() {
         ClientsService service = ServiceGenerator.createService(ClientsService.class);
         return service.getAllClients(UrlManager.getAllClientsURL())
-                .flatMap(new Function<JsonElement, ObservableSource<List<Client>>>() {
+                .flatMap(new Function<JsonElement, Observable<List<Client>>>() {
                     @Override
-                    public ObservableSource<List<Client>> apply(JsonElement jsonElement) throws Exception {
-                        Log.i("Get All Clients" , "JSON: "+jsonElement.toString());
-                        if(jsonElement.isJsonArray()) {
-                            List<Client> clients = Client.ClientsListParser.fromJsonArray(jsonElement.getAsJsonArray());
-                            return Observable.just(clients);
+                    public Observable<List<Client>> apply(JsonElement jsonElement) throws Exception {
+                        if(jsonElement != null) {
+                            Log.i("Get All Clients" , "JSON: "+jsonElement.toString());
+                            if(jsonElement.isJsonArray()) {
+                                List<Client> clients = Client.ClientsListParser.fromJsonArray(jsonElement.getAsJsonArray());
+                                return Observable.just(clients);
+                            } else {
+                                return Observable.error(new Exception("Expected a JSON Array"));
+                            }
                         } else {
-                            return Observable.error(new Exception("Expected a JSON Array"));
+                            return Observable.just((List<Client>) new ArrayList<Client>());
                         }
                     }
                 }).observeOn(AndroidSchedulers.mainThread());

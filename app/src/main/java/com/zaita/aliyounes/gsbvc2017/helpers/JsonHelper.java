@@ -8,6 +8,6 @@ import com.google.gson.JsonElement;
 
 public class JsonHelper {
     public static boolean isNull(JsonElement jsonElement, String key) {
-        return jsonElement.getAsJsonObject().has(key);
+        return !jsonElement.getAsJsonObject().has(key);
     }
 }

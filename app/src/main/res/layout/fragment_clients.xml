@@ -12,6 +12,12 @@
         layout="@layout/no_internet_layout"
         android:visibility="gone"
         android:id="@+id/relativeLayout_noInternet"/>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar_loadingData"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:visibility="gone"/>
     <include
         layout="@layout/server_error_layout"
         android:visibility="gone"

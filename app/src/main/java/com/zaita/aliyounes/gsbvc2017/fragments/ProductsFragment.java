@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class ProductsFragment extends Fragment {
     public static final String TAG = ProductsFragment.class.getSimpleName();
     RecyclerView recyclerView_products;
     ProductsAdapter adapter;
+    ProgressBar progressBarLoadingData;
     RelativeLayout relativeLayout_noInternet;
     RelativeLayout relativeLayout_serverError;
     RelativeLayout relativeLayout_noData;
@@ -57,15 +59,18 @@ public class ProductsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        products = new ArrayList<>();
+        setupViews(view);
         compositeDisposable = new CompositeDisposable();
         if(GSBApplication.isDummyData()) {
             products.addAll(getDummyProducts());
+            adapter.notifyDataSetChanged();
         } else {
             fetchProducts();
         }
-        setupViews(view);
     }
     private void setupViews(View rootView) {
+        progressBarLoadingData = (ProgressBar) rootView.findViewById(R.id.progressBar_loadingData);
         recyclerView_products = (RecyclerView) rootView.findViewById(R.id.recyclerView_products);
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
@@ -80,6 +85,7 @@ public class ProductsFragment extends Fragment {
         recyclerView_products.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
     }
     private void fetchProducts() {
+        progressBarLoadingData.setVisibility(View.VISIBLE);
         PoductsNetworkCalls.getAllProducts().subscribe(new Observer<List<Product>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -121,7 +127,7 @@ public class ProductsFragment extends Fragment {
 
             @Override
             public void onComplete() {
-
+                progressBarLoadingData.setVisibility(View.GONE);
             }
         });
     }

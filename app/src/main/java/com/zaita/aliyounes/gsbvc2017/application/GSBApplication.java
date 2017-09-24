@@ -6,8 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.zaita.aliyounes.gsbvc2017.helpers.PrefUtils;
 import com.zaita.aliyounes.gsbvc2017.network.ServiceGenerator;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Created by Lenovo on 8/18/2017.
@@ -26,6 +30,10 @@ public class GSBApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        Stetho.initializeWithDefaults(this);
+        new OkHttpClient.Builder()
+                .addNetworkInterceptor(new StethoInterceptor())
+                .build();
         //setDummyData();
         clearDummyData();
         ServiceGenerator.setup();

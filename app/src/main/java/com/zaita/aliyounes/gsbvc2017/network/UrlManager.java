@@ -18,7 +18,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Client")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Clients URL" , uri.toString());
         return uri.toString();
@@ -36,7 +36,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Branch")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Branches URL" , uri.toString());
         return uri.toString();
@@ -54,7 +54,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Brand")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Brands URL" , uri.toString());
         return uri.toString();
@@ -72,7 +72,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Product")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Products URL" , uri.toString());
         return uri.toString();
@@ -90,7 +90,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Supplier")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Suppliers URL" , uri.toString());
         return uri.toString();
@@ -109,7 +109,7 @@ public class UrlManager {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()
                 .appendPath("Order")
-                .appendPath("all")
+                //.appendPath("all")
                 .build();
         Log.i("Get All Transaction URL" , uri.toString());
         return uri.toString();

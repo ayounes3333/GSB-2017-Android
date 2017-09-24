@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class BranchesFragment extends Fragment {
     public static final String TAG = BranchesFragment.class.getSimpleName();
     RecyclerView recyclerView_branches;
     BranchesAdapter adapter;
+    ProgressBar progressBarLoadingData;
     RelativeLayout relativeLayout_noInternet;
     RelativeLayout relativeLayout_serverError;
     RelativeLayout relativeLayout_noData;
@@ -59,14 +61,16 @@ public class BranchesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         compositeDisposable = new CompositeDisposable();
         branches = new ArrayList<>();
+        setupViews(view);
         if (GSBApplication.isDummyData()) {
             branches.addAll(getDummyBranches());
+            adapter.notifyDataSetChanged();
         } else {
             fetchBranches();
         }
-        setupViews(view);
     }
     private void setupViews(View rootView) {
+        progressBarLoadingData = (ProgressBar) rootView.findViewById(R.id.progressBar_loadingData);
         recyclerView_branches = (RecyclerView) rootView.findViewById(R.id.recyclerView_branches);
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
@@ -93,6 +97,7 @@ public class BranchesFragment extends Fragment {
         return dummyBranches;
     }
     private void fetchBranches() {
+        progressBarLoadingData.setVisibility(View.VISIBLE);
         BranchesNetworkCalls.getAllBranches().subscribe(new Observer<List<Branch>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -137,7 +142,7 @@ public class BranchesFragment extends Fragment {
 
             @Override
             public void onComplete() {
-
+                progressBarLoadingData.setVisibility(View.GONE);
             }
         });
     }

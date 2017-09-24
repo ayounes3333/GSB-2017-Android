@@ -9,6 +9,7 @@ import com.zaita.aliyounes.gsbvc2017.network.UrlManager;
 import com.zaita.aliyounes.gsbvc2017.network.services.ProductsService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -22,7 +23,6 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 
-
 public class PoductsNetworkCalls {
     public static Observable<List<Product>> getAllProducts() {
         ProductsService service = ServiceGenerator.createService(ProductsService.class);
@@ -30,24 +30,30 @@ public class PoductsNetworkCalls {
                 .flatMap(new Function<JsonElement, Observable<List<Product>>>() {
                     @Override
                     public Observable<List<Product>> apply(JsonElement jsonElement) throws Exception {
-                        Log.i("Get All Products" , "JSON: "+jsonElement.toString());
-                        if(jsonElement.isJsonArray()) {
-                            List<Product> products = Product.ProductsListParser.fromJsonArray(jsonElement.getAsJsonArray());
-                            return Observable.just(products);
+                        if (jsonElement != null) {
+                            Log.i("Get All Products", "JSON: " + jsonElement.toString());
+                            if (jsonElement.isJsonArray()) {
+                                List<Product> products = Product.ProductsListParser.fromJsonArray(jsonElement.getAsJsonArray());
+                                return Observable.just(products);
+                            } else {
+                                return Observable.error(new Exception("Expected a JSON Array"));
+                            }
                         } else {
-                            return Observable.error(new Exception("Expected a JSON Array"));
+                            return Observable.just((List<Product>) new ArrayList<Product>());
                         }
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
-    public static Observable<Integer> addProduct(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product ) {
+
+    public static Observable<Integer> addProduct(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product) {
         ProductsService service = ServiceGenerator.createService(ProductsService.class);
-        return service.addProduct(UrlManager.addProductURL() , product)
-                .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
+        return service.addProduct(UrlManager.addProductURL(), product)
+                .flatMap(new Function<JsonElement, Observable<Integer>>() {
                     @Override
-                    public ObservableSource<Integer> apply(JsonElement jsonElement) throws Exception {
-                        Log.i("Add Product" , "JSON: "+jsonElement);
-                        if(!JsonHelper.isNull(jsonElement , "prCode")) {
+                    public Observable<Integer> apply(JsonElement jsonElement) throws Exception {
+
+                        Log.i("Add Product", "JSON: " + jsonElement);
+                        if (!JsonHelper.isNull(jsonElement, "prCode")) {
                             return Observable.just(jsonElement.getAsJsonObject().get("prCode").getAsInt());
                         } else {
                             return Observable.error(new Exception("Invalid Product code format"));

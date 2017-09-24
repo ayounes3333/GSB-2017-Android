@@ -9,6 +9,7 @@ import com.zaita.aliyounes.gsbvc2017.network.UrlManager;
 import com.zaita.aliyounes.gsbvc2017.network.services.BranchesService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -30,12 +31,16 @@ public class BranchesNetworkCalls {
                 .flatMap(new Function<JsonElement, Observable<List<Branch>>>() {
                     @Override
                     public Observable<List<Branch>> apply(JsonElement jsonElement) throws Exception {
-                        Log.i("Get All Branches" , "JSON: "+jsonElement.toString());
-                        if(jsonElement.isJsonArray()) {
-                            List<Branch> branches = Branch.BranchesListParser.fromJsonArray(jsonElement.getAsJsonArray());
-                            return Observable.just(branches);
+                        if(jsonElement != null) {
+                            Log.i("Get All Branches", "JSON: " + jsonElement.toString());
+                            if (jsonElement.isJsonArray()) {
+                                List<Branch> branches = Branch.BranchesListParser.fromJsonArray(jsonElement.getAsJsonArray());
+                                return Observable.just(branches);
+                            } else {
+                                return Observable.error(new Exception("Expected a JSON Array"));
+                            }
                         } else {
-                            return Observable.error(new Exception("Expected a JSON Array"));
+                            return Observable.just((List<Branch>) new ArrayList<Branch>());
                         }
                     }
                 }).observeOn(AndroidSchedulers.mainThread());

@@ -10,6 +10,7 @@ import com.zaita.aliyounes.gsbvc2017.network.services.BrandsService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Brand;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -32,12 +33,16 @@ public class BrandsNetworkCalls {
                     .flatMap(new Function<JsonElement, Observable<List<Brand>>>() {
                         @Override
                         public Observable<List<Brand>> apply(JsonElement jsonElement) throws Exception {
-                            Log.i("Get All Brands" , "JSON: "+jsonElement.toString());
-                            if(jsonElement.isJsonArray()) {
-                                List<Brand> brands = Brand.BrandsListParser.fromJsonArray(jsonElement.getAsJsonArray());
-                                return Observable.just(brands);
+                            if(jsonElement != null) {
+                                Log.i("Get All Brands" , "JSON: "+jsonElement.toString());
+                                if(jsonElement.isJsonArray()) {
+                                    List<Brand> brands = Brand.BrandsListParser.fromJsonArray(jsonElement.getAsJsonArray());
+                                    return Observable.just(brands);
+                                } else {
+                                    return Observable.error(new Exception("Expected a JSON Array"));
+                                }
                             } else {
-                                return Observable.error(new Exception("Expected a JSON Array"));
+                                return Observable.just((List<Brand>) new ArrayList<Brand>());
                             }
                         }
                     }).observeOn(AndroidSchedulers.mainThread());

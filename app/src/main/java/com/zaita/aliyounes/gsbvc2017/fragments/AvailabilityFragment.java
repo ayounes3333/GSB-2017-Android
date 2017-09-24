@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.zaita.aliyounes.gsbvc2017.R;
@@ -29,6 +30,7 @@ public class AvailabilityFragment extends Fragment {
     public static final String TAG = AvailabilityFragment.class.getSimpleName();
     RecyclerView recyclerView_availabilities;
     AvailabilitiesAdapter adapter;
+    ProgressBar progressBarLoadingData;
     RelativeLayout relativeLayout_noInternet;
     RelativeLayout relativeLayout_serverError;
     RelativeLayout relativeLayout_noData;
@@ -49,17 +51,19 @@ public class AvailabilityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        compositeDisposable = new CompositeDisposable();
         availabilities = new ArrayList<>();
+        setupViews(view);
+        compositeDisposable = new CompositeDisposable();
         if(GSBApplication.isDummyData()) {
             availabilities.addAll(getDummyAvailabilities());
+            adapter.notifyDataSetChanged();
         } else {
             fetchAvailabilities();
         }
-        setupViews(view);
     }
     private void setupViews(View rootView) {
         recyclerView_availabilities = (RecyclerView) rootView.findViewById(R.id.recyclerView_availabilities);
+        progressBarLoadingData = (ProgressBar) rootView.findViewById(R.id.progressBar_loadingData);
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
         relativeLayout_noData      = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noAvailabilities);
@@ -74,7 +78,8 @@ public class AvailabilityFragment extends Fragment {
     }
 
     private void fetchAvailabilities() {
-        /*AvailabilitiesNetworkCalls.getAllAvailabilities().subscribe(new Observer<List<Availability>>() {
+        /*progressBarLoadingData.setVisibility(View.VISIBLE);
+          AvailabilitiesNetworkCalls.getAllAvailabilities().subscribe(new Observer<List<Availability>>() {
             @Override
             public void onSubscribe(Disposable d) {
                 compositeDisposable.add(d);
@@ -118,7 +123,7 @@ public class AvailabilityFragment extends Fragment {
 
             @Override
             public void onComplete() {
-
+                progressBarLoadingData.setVisibility(Vew.GONE);
             }
         });*/
     }

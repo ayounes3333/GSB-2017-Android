@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class BrandsFragment extends Fragment {
     public static final String TAG = BrandsFragment.class.getSimpleName();
     RecyclerView recyclerView_brands;
     BrandsAdapter adapter;
+    ProgressBar progressBarLoadingData;
     RelativeLayout relativeLayout_noInternet;
     RelativeLayout relativeLayout_serverError;
     RelativeLayout relativeLayout_noData;
@@ -56,16 +58,18 @@ public class BrandsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        compositeDisposable = new CompositeDisposable();
         brands = new ArrayList<>();
+        setupViews(view);
+        compositeDisposable = new CompositeDisposable();
         if(GSBApplication.isDummyData()) {
             brands.addAll(getDummyBrands());
+            adapter.notifyDataSetChanged();
         } else {
             fetchBrands();
         }
-        setupViews(view);
     }
     private void setupViews(View rootView) {
+        progressBarLoadingData = (ProgressBar) rootView.findViewById(R.id.progressBar_loadingData);
         recyclerView_brands = (RecyclerView) rootView.findViewById(R.id.recyclerView_brands);
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
@@ -81,6 +85,7 @@ public class BrandsFragment extends Fragment {
     }
 
     private void fetchBrands() {
+        progressBarLoadingData.setVisibility(View.VISIBLE);
         BrandsNetworkCalls.getAllBrands().subscribe(new Observer<List<Brand>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -125,7 +130,7 @@ public class BrandsFragment extends Fragment {
 
             @Override
             public void onComplete() {
-
+                progressBarLoadingData.setVisibility(View.GONE);
             }
         });
     }
