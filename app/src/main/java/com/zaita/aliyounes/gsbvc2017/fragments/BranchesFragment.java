@@ -126,6 +126,7 @@ public class BranchesFragment extends Fragment {
             //Called if the request fail
             @Override
             public void onError(Throwable e) {
+                progressBarLoadingData.setVisibility(View.GONE);
                 Log.e("get Branches" , "Error getting branches" , e);
                 if(e instanceof SocketException || e instanceof IOException) {
                     Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();

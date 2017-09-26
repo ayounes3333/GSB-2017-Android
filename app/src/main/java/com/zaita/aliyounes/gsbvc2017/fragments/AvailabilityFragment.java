@@ -107,6 +107,7 @@ public class AvailabilityFragment extends Fragment {
             //Called if the request fail
             @Override
             public void onError(Throwable e) {
+                progressBarLoadingData.setVisibility(Vew.GONE);
                 Log.e("Get availabilities" , "Error getting availabilities" , e);
                 if(e instanceof SocketException || e instanceof IOException) {
                     Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
