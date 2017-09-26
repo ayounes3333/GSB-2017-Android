@@ -1,6 +1,7 @@
 package com.zaita.aliyounes.gsbvc2017.fragments;
 
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,8 +22,11 @@ import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
 
 import java.io.IOException;
 import java.net.SocketException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
@@ -67,7 +72,32 @@ public class TransactionsFragment extends Fragment {
         spinner_Prcode      = (Spinner)         rootView.findViewById(R.id.spinner_Prcode);
         spinner_Brcode      = (Spinner)         rootView.findViewById(R.id.spinner_Brcode);
 
+        final Calendar myCalendar = Calendar.getInstance();
+        final DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
+                String dateFormat = "EEEE, dd/MM/yyyy"; //In which you need put here
+                SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, Locale.US);
+                textInput_OrdDate.getEditText().setText(sdf.format(myCalendar.getTime()));
+
+
+            }
+        };
+        textInput_OrdDate.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), onDateSetListener,
+                        myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                datePickerDialog.show();
+
+            }
+        });
 
         Button button_ajouter = (Button) rootView.findViewById(R.id.button_ajouter);
         button_ajouter.setOnClickListener(new View.OnClickListener() {
