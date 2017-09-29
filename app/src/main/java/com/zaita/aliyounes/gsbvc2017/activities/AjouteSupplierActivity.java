@@ -108,19 +108,20 @@ public class AjouteSupplierActivity extends AppCompatActivity {
 
 
             //Call the API
-            SuppliersNetworkCalls.addSupplier(supplier).subscribe(new Observer<Integer>() {
+            SuppliersNetworkCalls.addSupplier(supplier).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);
                 }
                 //Called when the request succeed
                 @Override
-                public void onNext(Integer value) {
+                public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the Supplier ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Client" , "Supplier "+value+" added successfully");
                     Toast.makeText(AjouteSupplierActivity.this , "Supplier "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    AjouteSupplierActivity.this.finish();
                 }
 
                 //Called if the request fail

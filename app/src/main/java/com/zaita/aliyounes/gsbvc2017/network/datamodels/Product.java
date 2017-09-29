@@ -2,6 +2,7 @@ package com.zaita.aliyounes.gsbvc2017.network.datamodels;
 // Generated Aug 10, 2017 10:15:42 AM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ public class Product  implements java.io.Serializable {
 
      private Integer prCode;
      private String brand;
+     private String prCreationDate;
      private String supplier;
      private String prBarCode;
      private String prName;
@@ -143,8 +145,13 @@ public class Product  implements java.io.Serializable {
     }
 
 
+    public String getPrCreationDate() {
+        return prCreationDate;
+    }
 
-
+    public void setPrCreationDate(String prCreationDate) {
+        this.prCreationDate = prCreationDate;
+    }
 }
 
 

@@ -10,6 +10,7 @@ import com.zaita.aliyounes.gsbvc2017.network.services.SuppliersService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Supplier;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -43,18 +44,15 @@ public class SuppliersNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
-    public static Observable<Integer> addSupplier(com.zaita.aliyounes.gsbvc2017.network.datamodels.Supplier supplier) {
+    public static Observable<Boolean> addSupplier(com.zaita.aliyounes.gsbvc2017.network.datamodels.Supplier supplier) {
+        supplier.setSupCreationDate(JsonHelper.getDateFormatter().format(new Date()));
         SuppliersService service = ServiceGenerator.createService(SuppliersService.class);
         return service.addSupplier(UrlManager.addSupplierURL() , supplier)
-                .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
                     @Override
-                    public ObservableSource<Integer> apply(JsonElement jsonElement) throws Exception {
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
                         Log.i("Add Supplier" , "JSON: "+jsonElement);
-                        if(!JsonHelper.isNull(jsonElement , "supCode")) {
-                            return Observable.just(jsonElement.getAsJsonObject().get("supCode").getAsInt());
-                        } else {
-                            return Observable.error(new Exception("Invalid Supplier code format"));
-                        }
+                            return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }

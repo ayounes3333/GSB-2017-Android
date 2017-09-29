@@ -11,14 +11,15 @@ import java.util.Set;
 public class Branch  implements java.io.Serializable {
 
 
-     private Integer brCode;
-     private Company company;
-     private String brName;
-     private String brTel;
-     private String brAddress;
-     private boolean brStatus;
-     private Set branchProducts = new HashSet(0);
-     private Set roleBranches = new HashSet(0);
+    private Integer brCode;
+    private Company company;
+    private String brCreationDate;
+    private String brName;
+    private String brTel;
+    private String brAddress;
+    private boolean brStatus;
+    private Set branchProducts = new HashSet(0);
+    private Set roleBranches = new HashSet(0);
 
     public Branch() {
     }
@@ -96,8 +97,13 @@ public class Branch  implements java.io.Serializable {
     }
 
 
+    public String getBrCreationDate() {
+        return brCreationDate;
+    }
 
-
+    public void setBrCreationDate(String brCreationDate) {
+        this.brCreationDate = brCreationDate;
+    }
 }
 
 

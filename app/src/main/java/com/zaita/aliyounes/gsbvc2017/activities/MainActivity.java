@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
@@ -67,7 +68,10 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
         navigationView.setNavigationItemSelectedListener(this);
+        ((TextView) headerView.findViewById(R.id.textView_fullName)).setText(PrefUtils.getUsername());
+        ((TextView) headerView.findViewById(R.id.textView_emailUsername)).setText(PrefUtils.getUserEmail());
     }
 
     @Override

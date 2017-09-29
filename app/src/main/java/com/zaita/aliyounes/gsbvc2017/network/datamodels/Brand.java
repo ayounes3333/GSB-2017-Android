@@ -14,7 +14,7 @@ public class Brand  implements java.io.Serializable {
 
      private Integer brdCode;
      private String brdName;
-     private Date brdCreationDate;
+     private String brdCreationDate;
      private boolean brdStatus;
      private Set products = new HashSet(0);
 
@@ -22,11 +22,11 @@ public class Brand  implements java.io.Serializable {
     }
 
 	
-    public Brand(Date brdCreationDate, boolean brdStatus) {
+    public Brand(String brdCreationDate, boolean brdStatus) {
         this.brdCreationDate = brdCreationDate;
         this.brdStatus = brdStatus;
     }
-    public Brand(String brdName, Date brdCreationDate, boolean brdStatus, Set products) {
+    public Brand(String brdName, String brdCreationDate, boolean brdStatus, Set products) {
        this.brdName = brdName;
        this.brdCreationDate = brdCreationDate;
        this.brdStatus = brdStatus;
@@ -47,11 +47,11 @@ public class Brand  implements java.io.Serializable {
     public void setBrdName(String brdName) {
         this.brdName = brdName;
     }
-    public Date getBrdCreationDate() {
+    public String getBrdCreationDate() {
         return this.brdCreationDate;
     }
     
-    public void setBrdCreationDate(Date brdCreationDate) {
+    public void setBrdCreationDate(String brdCreationDate) {
         this.brdCreationDate = brdCreationDate;
     }
     public boolean isBrdStatus() {

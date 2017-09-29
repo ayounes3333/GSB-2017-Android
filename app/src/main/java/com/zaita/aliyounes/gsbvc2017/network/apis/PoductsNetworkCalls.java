@@ -10,6 +10,7 @@ import com.zaita.aliyounes.gsbvc2017.network.services.ProductsService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Product;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -45,19 +46,16 @@ public class PoductsNetworkCalls {
                 }).observeOn(AndroidSchedulers.mainThread());
     }
 
-    public static Observable<Integer> addProduct(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product) {
+    public static Observable<Boolean> addProduct(com.zaita.aliyounes.gsbvc2017.network.datamodels.Product product) {
+        product.setPrCreationDate(JsonHelper.getDateFormatter().format(new Date()));
         ProductsService service = ServiceGenerator.createService(ProductsService.class);
         return service.addProduct(UrlManager.addProductURL(), product)
-                .flatMap(new Function<JsonElement, Observable<Integer>>() {
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
                     @Override
-                    public Observable<Integer> apply(JsonElement jsonElement) throws Exception {
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
 
                         Log.i("Add Product", "JSON: " + jsonElement);
-                        if (!JsonHelper.isNull(jsonElement, "prCode")) {
-                            return Observable.just(jsonElement.getAsJsonObject().get("prCode").getAsInt());
-                        } else {
-                            return Observable.error(new Exception("Invalid Product code format"));
-                        }
+                        return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }

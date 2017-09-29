@@ -105,6 +105,16 @@ public class UrlManager {
         return uri.toString();
     }
 
+    public static String loginURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("User")
+                .appendPath("login")
+                .build();
+        Log.i("login URL" , uri.toString());
+        return uri.toString();
+    }
+
     public static String getAllTransactionsURL() {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()

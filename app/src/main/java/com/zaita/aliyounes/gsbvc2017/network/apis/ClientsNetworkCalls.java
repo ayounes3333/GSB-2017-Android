@@ -11,6 +11,7 @@ import com.zaita.aliyounes.gsbvc2017.network.services.ClientsService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Client;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -44,18 +45,15 @@ public class ClientsNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
-    public static Observable<Integer> addClient(com.zaita.aliyounes.gsbvc2017.network.datamodels.Client client) {
+    public static Observable<Boolean> addClient(com.zaita.aliyounes.gsbvc2017.network.datamodels.Client client) {
+        client.setCltCreationDate(JsonHelper.getDateFormatter().format(new Date()));
         ClientsService service = ServiceGenerator.createService(ClientsService.class);
         return service.addClient(UrlManager.addClientURL() , client)
-                .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
                     @Override
-                    public ObservableSource<Integer> apply(JsonElement jsonElement) throws Exception {
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
                         Log.i("Add Client" , "JSON: "+jsonElement);
-                        if(!JsonHelper.isNull(jsonElement , "cltCode")) {
-                            return Observable.just(jsonElement.getAsJsonObject().get("cltCode").getAsInt());
-                        } else {
-                            return Observable.error(new Exception("Invalid client code format"));
-                        }
+                        return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }

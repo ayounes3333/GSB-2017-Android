@@ -129,19 +129,20 @@ public class AjouteProductActivity extends AppCompatActivity {
 
 
             //Call the API
-            PoductsNetworkCalls.addProduct(product).subscribe(new Observer<Integer>() {
+            PoductsNetworkCalls.addProduct(product).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);
                 }
                 //Called when the request succeed
                 @Override
-                public void onNext(Integer value) {
+                public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the client ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Product" , "Product "+value+" added successfully");
                     Toast.makeText(AjouteProductActivity.this , "Product "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    AjouteProductActivity.this.finish();
                 }
 
                 //Called if the request fail

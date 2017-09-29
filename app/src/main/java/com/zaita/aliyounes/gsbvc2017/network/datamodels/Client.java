@@ -17,19 +17,19 @@ public class Client  implements java.io.Serializable {
      private String  cltEmail;
      private boolean sendMessage;
      private boolean sendCatalog;
-     private Date    cltCreationDate;
+     private String  cltCreationDate;
 
     public Client() {
     }
 
 	
-    public Client(int cltCode, boolean sendMessage, boolean sendCatalog, Date cltCreationDate) {
+    public Client(int cltCode, boolean sendMessage, boolean sendCatalog, String cltCreationDate) {
         this.cltCode = cltCode;
         this.sendMessage = sendMessage;
         this.sendCatalog = sendCatalog;
         this.cltCreationDate = cltCreationDate;
     }
-    public Client(int cltCode, String cltTitle, String cltName, String cltMobile, String cltEmail, boolean sendMessage, boolean sendCatalog, Date cltCreationDate) {
+    public Client(int cltCode, String cltTitle, String cltName, String cltMobile, String cltEmail, boolean sendMessage, boolean sendCatalog, String cltCreationDate) {
        this.cltCode = cltCode;
        this.cltTitle = cltTitle;
        this.cltName = cltName;
@@ -89,11 +89,11 @@ public class Client  implements java.io.Serializable {
     public void setSendCatalog(boolean sendCatalog) {
         this.sendCatalog = sendCatalog;
     }
-    public Date getCltCreationDate() {
+    public String getCltCreationDate() {
         return this.cltCreationDate;
     }
     
-    public void setCltCreationDate(Date cltCreationDate) {
+    public void setCltCreationDate(String cltCreationDate) {
         this.cltCreationDate = cltCreationDate;
     }
 

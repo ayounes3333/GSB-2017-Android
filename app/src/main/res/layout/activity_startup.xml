@@ -15,7 +15,7 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="432dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -63,16 +63,44 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/le_cnam_en_reseaux_sociaux"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:onClick="facebook"
+                    android:tint="@color/colorPrimaryDark"
+                    android:id="@+id/imageView_facebook"
+                    android:src="@drawable/ic_facebook"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:onClick="twitter"
+                    android:tint="@color/colorPrimaryDark"
+                    android:id="@+id/imageView_twitter"
+                    android:src="@drawable/ic_twitter"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:onClick="googlePlus"
+                    android:tint="@color/colorPrimaryDark"
+                    android:id="@+id/imageView_google"
+                    android:src="@drawable/ic_googleplus"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
 </LinearLayout>

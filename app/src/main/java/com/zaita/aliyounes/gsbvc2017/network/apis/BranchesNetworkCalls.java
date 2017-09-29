@@ -10,6 +10,7 @@ import com.zaita.aliyounes.gsbvc2017.network.services.BranchesService;
 import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -45,18 +46,15 @@ public class BranchesNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
-    public static Observable<Integer> addBranch(com.zaita.aliyounes.gsbvc2017.network.datamodels.Branch branch ) {
+    public static Observable<Boolean> addBranch(com.zaita.aliyounes.gsbvc2017.network.datamodels.Branch branch ) {
+        branch.setBrCreationDate(JsonHelper.getDateFormatter().format(new Date()));
         BranchesService service = ServiceGenerator.createService(BranchesService.class);
         return service.addBranch(UrlManager.addBranchURL() , branch)
-                .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
                     @Override
-                    public ObservableSource<Integer> apply(JsonElement jsonElement) throws Exception {
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
                         Log.i("Add Branch" , "JSON: "+jsonElement);
-                        if(!JsonHelper.isNull(jsonElement , "brCode")) {
-                            return Observable.just(jsonElement.getAsJsonObject().get("brCode").getAsInt());
-                        } else {
-                            return Observable.error(new Exception("Invalid Branch code format"));
-                        }
+                        return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }

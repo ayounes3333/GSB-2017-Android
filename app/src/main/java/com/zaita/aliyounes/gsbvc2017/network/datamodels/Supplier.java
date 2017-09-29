@@ -2,6 +2,7 @@ package com.zaita.aliyounes.gsbvc2017.network.datamodels;
 // Generated Aug 10, 2017 10:15:42 AM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ public class Supplier  implements java.io.Serializable {
      private String supName;
      private String supTel;
      private String supMobile;
+     private String supCreationDate;
      private String supAddress;
      private String supEmail;
      private Set products = new HashSet(0);
@@ -82,8 +84,13 @@ public class Supplier  implements java.io.Serializable {
     }
 
 
+    public String getSupCreationDate() {
+        return supCreationDate;
+    }
 
-
+    public void setSupCreationDate(String supCreationDate) {
+        this.supCreationDate = supCreationDate;
+    }
 }
 
 

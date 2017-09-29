@@ -117,19 +117,20 @@ public class AjouteClientActivity extends AppCompatActivity {
             client.setSendMessage(checkBox_sms.isChecked());
 
             //Call the API
-            ClientsNetworkCalls.addClient(client).subscribe(new Observer<Integer>() {
+            ClientsNetworkCalls.addClient(client).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);
                 }
                 //Called when the request succeed
                 @Override
-                public void onNext(Integer value) {
+                public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the client ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Client" , "Client "+value+" added successfully");
-                    Toast.makeText(AjouteClientActivity.this , "Client "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteClientActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
+                    AjouteClientActivity.this.finish();
                 }
 
                 //Called if the request fail

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
+import com.zaita.aliyounes.gsbvc2017.application.GSBApplication;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +20,21 @@ public class PrefUtils {
         SharedPreferences pref = PreferenceManager
                 .getDefaultSharedPreferences(context.getApplicationContext());
         return pref.getInt(context.getString(key), defValue);
+    }
+
+    public static void setUsername(String username) {
+        setString(GSBApplication.getInstance() , "UserName" , username);
+    }
+
+    public static String getUsername() {
+        return getString(GSBApplication.getInstance() , "UserName" , "");
+    }
+    public static void setUserEmail(String userEmail) {
+        setString(GSBApplication.getInstance() , "UserEmail" , userEmail);
+    }
+
+    public static String getUserEmail() {
+        return getString(GSBApplication.getInstance() , "UserEmail" , "");
     }
 
     public static int getInt(Context context, String key, int defValue) {

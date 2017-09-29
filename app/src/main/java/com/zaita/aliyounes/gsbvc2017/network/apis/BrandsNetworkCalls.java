@@ -11,6 +11,7 @@ import com.zaita.aliyounes.gsbvc2017.pojos.Brand;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -47,18 +48,15 @@ public class BrandsNetworkCalls {
                         }
                     }).observeOn(AndroidSchedulers.mainThread());
         }
-    public static Observable<Integer> addBrand(com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand brand) {
+    public static Observable<Boolean> addBrand(com.zaita.aliyounes.gsbvc2017.network.datamodels.Brand brand) {
+        brand.setBrdCreationDate(JsonHelper.getDateFormatter().format(new Date()));
         BrandsService service = ServiceGenerator.createService(BrandsService.class);
         return service.addBrand(UrlManager.addBrandURL() , brand)
-                .flatMap(new Function<JsonElement, ObservableSource<Integer>>() {
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
                     @Override
-                    public ObservableSource<Integer> apply(JsonElement jsonElement) throws Exception {
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
                         Log.i("Add Brand" , "JSON: "+jsonElement);
-                        if(!JsonHelper.isNull(jsonElement , "brdCode")) {
-                            return Observable.just(jsonElement.getAsJsonObject().get("brdCode").getAsInt());
-                        } else {
-                            return Observable.error(new Exception("Invalid Brand code format"));
-                        }
+                        return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }

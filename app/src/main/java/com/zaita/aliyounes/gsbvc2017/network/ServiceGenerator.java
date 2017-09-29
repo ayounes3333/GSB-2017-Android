@@ -65,7 +65,7 @@ public class ServiceGenerator {
         httpClient.addInterceptor(new ReceivedCookiesInterceptor()); // VERY VERY IMPORTANT
         httpClient.addInterceptor(provideHttpLoggingInterceptor());
         httpClient.addNetworkInterceptor(new StethoInterceptor());// Stetho
-        httpClient.addNetworkInterceptor(provideCacheInterceptor());
+        //httpClient.addNetworkInterceptor(provideCacheInterceptor());
         httpClient.cache(provideCache());
         OkHttpClient client = httpClient.build();
         retrofit = builder.client(client).build();

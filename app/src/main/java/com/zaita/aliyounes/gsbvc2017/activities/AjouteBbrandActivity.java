@@ -66,19 +66,20 @@ public class AjouteBbrandActivity extends AppCompatActivity {
 
 
             //Call the API
-            BrandsNetworkCalls.addBrand(brand).subscribe(new Observer<Integer>() {
+            BrandsNetworkCalls.addBrand(brand).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);
                 }
                 //Called when the request succeed
                 @Override
-                public void onNext(Integer value) {
+                public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the brand ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
-                    Log.i("Add Client" , "Client "+value+" added successfully");
-                    Toast.makeText(AjouteBbrandActivity.this , "Client "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    Log.i("Add Client" , "Client added successfully");
+                    Toast.makeText(AjouteBbrandActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
+                    AjouteBbrandActivity.this.finish();
                 }
 
                 //Called if the request fail

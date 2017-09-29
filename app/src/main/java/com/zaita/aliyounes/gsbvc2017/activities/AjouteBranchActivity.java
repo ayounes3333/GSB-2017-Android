@@ -86,19 +86,20 @@ public class AjouteBranchActivity extends AppCompatActivity {
 
 
             //Call the API
-            BranchesNetworkCalls.addBranch(branch).subscribe(new Observer<Integer>() {
+            BranchesNetworkCalls.addBranch(branch).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);
                 }
                 //Called when the request succeed
                 @Override
-                public void onNext(Integer value) {
+                public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the Branch ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
-                    Log.i("Add Branch" , "Branch "+value+" added successfully");
-                    Toast.makeText(AjouteBranchActivity.this , "Branch "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    Log.i("Add Branch" , "Branch added successfully");
+                    Toast.makeText(AjouteBranchActivity.this , "Branch added successfully" , Toast.LENGTH_SHORT).show();
+                    AjouteBranchActivity.this.finish();
                 }
 
                 //Called if the request fail

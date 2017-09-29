@@ -100,4 +100,5 @@
     <string name="no_availabilities_found">No Data to Show</string>
     <string name="server_error_message">The Server Has Stumbled! \n We All Have Bad Days</string>
     <string name="no_connection_message">No Internet Connection</string>
+    <string name="le_cnam_en_reseaux_sociaux">Le CNAM en Reseaux Sociaux</string>
 </resources>
