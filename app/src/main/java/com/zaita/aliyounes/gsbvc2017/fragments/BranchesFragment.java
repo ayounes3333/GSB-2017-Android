@@ -97,6 +97,11 @@ public class BranchesFragment extends Fragment {
         return dummyBranches;
     }
     private void fetchBranches() {
+        branches.clear();
+        adapter.notifyDataSetChanged();
+        relativeLayout_noData.setVisibility(View.GONE);
+        relativeLayout_noInternet.setVisibility(View.GONE);
+        relativeLayout_serverError.setVisibility(View.GONE);
         progressBarLoadingData.setVisibility(View.VISIBLE);
         BranchesNetworkCalls.getAllBranches().subscribe(new Observer<List<Branch>>() {
             @Override
@@ -151,6 +156,7 @@ public class BranchesFragment extends Fragment {
     public void onResume() {
         super.onResume();
         compositeDisposable = new CompositeDisposable();
+        fetchBranches();
     }
 
     @Override

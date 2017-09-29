@@ -85,6 +85,11 @@ public class BrandsFragment extends Fragment {
     }
 
     private void fetchBrands() {
+        brands.clear();
+        adapter.notifyDataSetChanged();
+        relativeLayout_noData.setVisibility(View.GONE);
+        relativeLayout_noInternet.setVisibility(View.GONE);
+        relativeLayout_serverError.setVisibility(View.GONE);
         progressBarLoadingData.setVisibility(View.VISIBLE);
         BrandsNetworkCalls.getAllBrands().subscribe(new Observer<List<Brand>>() {
             @Override
@@ -151,6 +156,7 @@ public class BrandsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         compositeDisposable = new CompositeDisposable();
+        fetchBrands();
     }
 
     @Override

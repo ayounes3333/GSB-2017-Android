@@ -85,6 +85,11 @@ public class ProductsFragment extends Fragment {
         recyclerView_products.setLayoutManager(new LinearLayoutManager(getContext() , LinearLayoutManager.VERTICAL , false));
     }
     private void fetchProducts() {
+        products.clear();
+        adapter.notifyDataSetChanged();
+        relativeLayout_noData.setVisibility(View.GONE);
+        relativeLayout_noInternet.setVisibility(View.GONE);
+        relativeLayout_serverError.setVisibility(View.GONE);
         progressBarLoadingData.setVisibility(View.VISIBLE);
         PoductsNetworkCalls.getAllProducts().subscribe(new Observer<List<Product>>() {
             @Override
@@ -147,6 +152,7 @@ public class ProductsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         compositeDisposable = new CompositeDisposable();
+        fetchProducts();
     }
 
     @Override

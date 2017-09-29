@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/imageView_icon"
                 android:layout_width="48dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_supplier_brand"
@@ -111,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_adr_titre"
-                android:text="Adresse Supplier"
+                android:text="@string/adresse_supplier"
                 android:layout_below="@+id/textView_mobile_titre"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>

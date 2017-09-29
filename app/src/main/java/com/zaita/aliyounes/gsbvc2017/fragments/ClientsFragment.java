@@ -95,6 +95,11 @@ public class ClientsFragment extends Fragment {
     }
     //Get All Clients from the server
     private void fetchClients() {
+        clients.clear();
+        adapter.notifyDataSetChanged();
+        relativeLayout_noData.setVisibility(View.GONE);
+        relativeLayout_noInternet.setVisibility(View.GONE);
+        relativeLayout_serverError.setVisibility(View.GONE);
         progressBarLoadingData.setVisibility(View.VISIBLE);
         ClientsNetworkCalls.getAllClients().subscribe(new Observer<List<Client>>() {
             @Override
@@ -150,6 +155,7 @@ public class ClientsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         compositeDisposable = new CompositeDisposable();
+        fetchClients();
     }
 
     @Override

@@ -119,11 +119,16 @@ public class AjouteProductActivity extends AppCompatActivity {
 
             product.setCostPrice(textInput_cost.getEditText().getText().toString());
             product.setSellingPrice(textInput_sel.getEditText().getText().toString());
-            product.setPrType(spinner_prd_type.getSelectedItem().toString());
-            product.setPrFamily(spinner_prd_fam.getSelectedItem().toString());
-            product.setPrSeason(spinner_prd_season.getSelectedItem().toString());
-            product.setSupplier(spinner_supplier.getSelectedItem().toString());
-            product.setBrand(spinner_brand.getSelectedItem().toString());
+            if(spinner_prd_type.getSelectedItemPosition() >= 0)
+                product.setPrType(spinner_prd_type.getSelectedItem().toString());
+            if(spinner_prd_fam.getSelectedItemPosition() >= 0)
+                product.setPrFamily(spinner_prd_fam.getSelectedItem().toString());
+            if(spinner_prd_season.getSelectedItemPosition() >= 0)
+                product.setPrSeason(spinner_prd_season.getSelectedItem().toString());
+            if(spinner_supplier.getSelectedItemPosition() >= 0)
+                product.setSupplier(spinner_supplier.getSelectedItem().toString());
+            if(spinner_brand.getSelectedItemPosition() >= 0)
+                product.setBrand(spinner_brand.getSelectedItem().toString());
             product.setPrBarCode(textInput_barcode.getEditText().getText().toString());
 
 
@@ -141,7 +146,7 @@ public class AjouteProductActivity extends AppCompatActivity {
                     //In this case it is the client ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Product" , "Product "+value+" added successfully");
-                    Toast.makeText(AjouteProductActivity.this , "Product "+value+" added successfully" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteProductActivity.this , "Product added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteProductActivity.this.finish();
                 }
 

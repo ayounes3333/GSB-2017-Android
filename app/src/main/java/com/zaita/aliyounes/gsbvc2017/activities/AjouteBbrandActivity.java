@@ -77,7 +77,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
                     //Value is the return of the API call
                     //In this case it is the brand ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
-                    Log.i("Add Client" , "Client added successfully");
+                    Log.i("Add Brand" , "Brand added successfully");
                     Toast.makeText(AjouteBbrandActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteBbrandActivity.this.finish();
                 }

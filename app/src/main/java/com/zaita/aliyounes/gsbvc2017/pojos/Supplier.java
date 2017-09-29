@@ -143,22 +143,22 @@ public class Supplier {
     public static class SupplierParser {
         public static Supplier fomJsonElement(JsonElement element) {
             Supplier supplier = new Supplier();
-            if(JsonHelper.isNull(element, "supCode")) {
+            if(!JsonHelper.isNull(element, "supCode")) {
                 supplier.setCodeSup(element.getAsJsonObject().get("supCode").getAsInt());
             }
-            if(JsonHelper.isNull(element, "supName")) {
+            if(!JsonHelper.isNull(element, "supName")) {
                 supplier.setNameSup(element.getAsJsonObject().get("supName").getAsString());
             }
-            if(JsonHelper.isNull(element, "supTel")) {
+            if(!JsonHelper.isNull(element, "supTel")) {
                 supplier.setTelSup(element.getAsJsonObject().get("supTel").getAsString());
             }
-            if(JsonHelper.isNull(element, "supMobile")) {
+            if(!JsonHelper.isNull(element, "supMobile")) {
                 supplier.setMobSup(element.getAsJsonObject().get("supMobile").getAsString());
             }
-            if(JsonHelper.isNull(element, "supAddress")) {
+            if(!JsonHelper.isNull(element, "supAddress")) {
                 supplier.setAddressSup(element.getAsJsonObject().get("supAddress").getAsString());
             }
-            if(JsonHelper.isNull(element, "supEmail")) {
+            if(!JsonHelper.isNull(element, "supEmail")) {
                 supplier.setEmailSup(element.getAsJsonObject().get("supEmail").getAsString());
             }
             return supplier;

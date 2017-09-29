@@ -84,6 +84,11 @@ public class SuppliersFragment extends Fragment {
     }
 
     private void fetchSuppliers() {
+        suppliers.clear();
+        adapter.notifyDataSetChanged();
+        relativeLayout_noData.setVisibility(View.GONE);
+        relativeLayout_noInternet.setVisibility(View.GONE);
+        relativeLayout_serverError.setVisibility(View.GONE);
         progressBarLoadingData.setVisibility(View.VISIBLE);
         SuppliersNetworkCalls.getAllSuppliers().subscribe(new Observer<List<Supplier>>() {
             @Override
@@ -150,6 +155,7 @@ public class SuppliersFragment extends Fragment {
     public void onResume() {
         super.onResume();
         compositeDisposable = new CompositeDisposable();
+        fetchSuppliers();
     }
 
     @Override
