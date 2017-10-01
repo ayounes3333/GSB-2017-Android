@@ -21,4 +21,7 @@ public interface BrandsService {
 
     @POST
     Observable<JsonElement> addBrand(@Url String url, @Body Brand brand);
+
+    @POST
+    Observable<JsonElement> deleteBrand(@Url String url, @Body String code);
 }

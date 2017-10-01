@@ -68,6 +68,15 @@ public class UrlManager {
         Log.i("Add Brand URL" , uri.toString());
         return uri.toString();
     }
+    public static String deleteBrandURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Brand")
+                .appendPath("delete")
+                .build();
+        Log.i("Delete Brand URL" , uri.toString());
+        return uri.toString();
+    }
     public static String getAllProductsURL() {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()

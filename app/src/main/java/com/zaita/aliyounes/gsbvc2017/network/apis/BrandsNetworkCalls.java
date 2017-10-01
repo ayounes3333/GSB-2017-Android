@@ -60,4 +60,15 @@ public class BrandsNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
+    public static Observable<Boolean> deleteBrand(String code) {
+        BrandsService service = ServiceGenerator.createService(BrandsService.class);
+        return service.deleteBrand(UrlManager.deleteBrandURL() , code)
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
+                        Log.i("delete Brand" , "JSON: "+jsonElement);
+                        return Observable.just(true);
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
 }
