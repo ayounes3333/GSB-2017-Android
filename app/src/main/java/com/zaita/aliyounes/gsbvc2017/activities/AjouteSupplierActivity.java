@@ -92,7 +92,6 @@ public class AjouteSupplierActivity extends AppCompatActivity {
     }
 
     private void addSupplier() {
-        //TODO: implement API call
 
         Supplier supplier= new Supplier();
         if( textInput_nom.getEditText()          != null &&
