@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">GSB VC 2017</string>
+    <string name="app_name">Phoenix Stock Management</string>
     <string name="splash_icon">Splash Icon</string>
-    <string name="project_name">GSB 2017</string>
+    <string name="project_name">Phoenix Stock Management</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
