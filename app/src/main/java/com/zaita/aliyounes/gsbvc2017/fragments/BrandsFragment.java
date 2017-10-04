@@ -25,7 +25,6 @@ import com.zaita.aliyounes.gsbvc2017.adapters.BrandsAdapter;
 import com.zaita.aliyounes.gsbvc2017.application.GSBApplication;
 import com.zaita.aliyounes.gsbvc2017.network.apis.BrandsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.pojos.Brand;
-import com.zaita.aliyounes.gsbvc2017.pojos.Brand;
 
 import java.io.IOException;
 import java.net.SocketException;

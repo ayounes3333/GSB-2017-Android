@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_nomBrand_titre"
+                android:id="@+id/textView_nomBranch_titre"
                 android:text="@string/nom_du_branche"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
@@ -46,14 +46,14 @@
                 android:id="@+id/textView_nomBranch"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_toRightOf="@+id/textView_nomBrand_titre"
-                android:layout_toEndOf="@id/textView_nomBrand_titre"/>
+                android:layout_toRightOf="@+id/textView_nomBranch_titre"
+                android:layout_toEndOf="@id/textView_nomBranch_titre"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_telBranch_titre"
-                android:layout_below="@id/textView_nomBrand_titre"
+                android:layout_below="@id/textView_nomBranch_titre"
                 android:text="@string/tel_du_branche"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
@@ -85,7 +85,19 @@
                 android:layout_toRightOf="@+id/textView_addrBranch_titre"
                 android:layout_toEndOf="@id/textView_addrBranch_titre"/>
         </RelativeLayout>
-
+        <Button
+            android:id="@+id/undo_button"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/button_undo"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

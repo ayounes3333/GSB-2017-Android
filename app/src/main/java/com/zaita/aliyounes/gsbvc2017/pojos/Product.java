@@ -19,6 +19,7 @@ public class Product {
     private int TypePr;
     private String FamilyPr;
     private boolean StatusPr;
+    private boolean isRemoving = false;
     private String MadeInPr;
     private int CodeBr;
     private int CostPrice;
@@ -163,6 +164,14 @@ public class Product {
 
     public void setCreationUserPr(String creationUserPr) {
         CreationUserPr = creationUserPr;
+    }
+
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    public void setRemoving(boolean removing) {
+        isRemoving = removing;
     }
 
     public static class ProductsListParser {

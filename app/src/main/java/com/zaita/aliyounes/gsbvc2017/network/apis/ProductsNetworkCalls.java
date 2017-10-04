@@ -24,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 
-public class PoductsNetworkCalls {
+public class ProductsNetworkCalls {
     public static Observable<List<Product>> getAllProducts() {
         ProductsService service = ServiceGenerator.createService(ProductsService.class);
         return service.getAllProducts(UrlManager.getAllProductsURL())
@@ -55,6 +55,18 @@ public class PoductsNetworkCalls {
                     public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
 
                         Log.i("Add Product", "JSON: " + jsonElement);
+                        return Observable.just(true);
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public static Observable<Boolean> deleteProduct(String code) {
+        ProductsService service = ServiceGenerator.createService(ProductsService.class);
+        return service.deleteProduct(UrlManager.deleteProductURL() , code)
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
+                        Log.i("delete Product" , "JSON: "+jsonElement);
                         return Observable.just(true);
                     }
                 }).observeOn(AndroidSchedulers.mainThread());

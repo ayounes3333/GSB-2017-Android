@@ -16,6 +16,7 @@ public class Branch {
     private int CodeBr;
     private String NameBr;
     private String TelBr;
+    private boolean isRemoving = false;
     private String AddressBr;
 
     public Branch() {
@@ -64,6 +65,14 @@ public class Branch {
 
     public void setAddressBr(String addressBr) {
         AddressBr = addressBr;
+    }
+
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    public void setRemoving(boolean removing) {
+        isRemoving = removing;
     }
 
     public static class BranchesListParser {

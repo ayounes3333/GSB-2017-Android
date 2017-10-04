@@ -21,4 +21,7 @@ public interface BranchesService {
 
     @POST
     Observable<JsonElement> addBranch(@Url String url, @Body Branch branch);
+
+    @POST
+    Observable<JsonElement> deleteBranch(@Url String url, @Body String code);
 }

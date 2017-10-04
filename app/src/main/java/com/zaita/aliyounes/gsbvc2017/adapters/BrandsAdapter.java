@@ -29,17 +29,17 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
- * Created by Ali Younes on 8/11/2017.
+ * Created by Ali Younes at 8/11/2017.
  */
 
-public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHolder> {
+public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandViewHolder> {
 
     //List of brands to show
     private List<Brand> brands;
     private List<Brand> pendingBrands;
     private static final int PENDING_REMOVAL_TIMEOUT = 3000; // 3sec
     private Handler handler = new Handler(); // hanlder for running delayed runnables
-    HashMap<String, Runnable> pendingRunnables = new HashMap<>(); // map of items to pending runnables, so we can cancel a r
+    private HashMap<String, Runnable> pendingRunnables = new HashMap<>(); // map of items to pending runnables, so we can cancel a r
 
     public BrandsAdapter(List<Brand> brands) {
         this.brands = brands;
@@ -47,13 +47,13 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHo
     }
 
     @Override
-    public BrandVieHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public BrandViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_brand_layout, viewGroup , false);
-        return new BrandVieHolder(view);
+        return new BrandViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(BrandVieHolder brandViewHolder, int position) {
+    public void onBindViewHolder(BrandViewHolder brandViewHolder, int position) {
         final Brand brand = brands.get(position);
         if (pendingBrands.contains(brand)) {
             // we need to show the "undo" state of the row
@@ -62,18 +62,30 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHo
             brandViewHolder.textView_brandNameTitle.setVisibility(View.GONE);
             brandViewHolder.linearLayout_iconBackground.setVisibility(View.GONE);
             brandViewHolder.buttonUndo.setVisibility(View.VISIBLE);
+            brandViewHolder.buttonUndo.setText(R.string.button_undo);
             brandViewHolder.buttonUndo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // user wants to undo the removal, let's cancel the pending task
                     Runnable pendingRemovalRunnable = pendingRunnables.get(brand.getNameBrd());
                     pendingRunnables.remove(brand.getNameBrd());
-                    if (pendingRemovalRunnable != null) handler.removeCallbacks(pendingRemovalRunnable);
+                    if (pendingRemovalRunnable != null)
+                        handler.removeCallbacks(pendingRemovalRunnable);
                     pendingBrands.remove(brand);
                     // this will rebind the row in "normal" state
                     notifyItemChanged(brands.indexOf(brand));
                 }
             });
+            if(brand.isRemoving()) {
+                //Deleting in progress
+                brandViewHolder.itemView.setBackgroundColor(Color.GRAY);
+                brandViewHolder.textView_brandName.setVisibility(View.GONE);
+                brandViewHolder.textView_brandNameTitle.setVisibility(View.GONE);
+                brandViewHolder.linearLayout_iconBackground.setVisibility(View.GONE);
+                brandViewHolder.buttonUndo.setVisibility(View.VISIBLE);
+                brandViewHolder.buttonUndo.setText(R.string.deleting);
+                brandViewHolder.buttonUndo.setEnabled(false);
+            }
         } else {
             // we need to show the "normal" state
             brandViewHolder.itemView.setBackgroundColor(Color.WHITE);
@@ -110,6 +122,8 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHo
     }
 
     public void remove(final int position) {
+        brands.get(position).setRemoving(true);
+        notifyItemChanged(position);
         BrandsNetworkCalls.deleteBrand(String.valueOf(brands.get(position).getCodeBrd())).subscribe(new Observer<Boolean>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -158,7 +172,7 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHo
         return pendingBrands.contains(item);
     }
 
-    class BrandVieHolder extends RecyclerView.ViewHolder {
+    class BrandViewHolder extends RecyclerView.ViewHolder {
 
         private final LinearLayout linearLayout_iconBackground;
         private TextView textView_brandName;
@@ -166,7 +180,7 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandVieHo
         private CardView cardView_brand;
         private Button   buttonUndo;
 
-        BrandVieHolder(View itemView) {
+        BrandViewHolder(View itemView) {
             super(itemView);
             textView_brandName          = (TextView) itemView.findViewById(R.id.textView_nomBrand);
             textView_brandNameTitle = (TextView) itemView.findViewById(R.id.textView_nomBrand_titre);

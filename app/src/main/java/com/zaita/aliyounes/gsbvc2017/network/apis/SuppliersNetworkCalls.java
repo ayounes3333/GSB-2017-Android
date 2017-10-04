@@ -56,4 +56,16 @@ public class SuppliersNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
+
+    public static Observable<Boolean> deleteSupplier(String code) {
+        SuppliersService service = ServiceGenerator.createService(SuppliersService.class);
+        return service.deleteSupplier(UrlManager.deleteSupplierURL() , code)
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
+                        Log.i("delete Supplier" , "JSON: "+jsonElement);
+                        return Observable.just(true);
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
 }

@@ -57,4 +57,16 @@ public class ClientsNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
+
+    public static Observable<Boolean> deleteClient(String code) {
+        ClientsService service = ServiceGenerator.createService(ClientsService.class);
+        return service.deleteClient(UrlManager.deleteClientURL() , code)
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
+                        Log.i("delete Client" , "JSON: "+jsonElement);
+                        return Observable.just(true);
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
 }

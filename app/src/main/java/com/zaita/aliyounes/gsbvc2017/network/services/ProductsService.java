@@ -20,4 +20,7 @@ public interface ProductsService {
 
     @POST
     Observable<JsonElement> addProduct(@Url String url, @Body Product product);
+
+    @POST
+    Observable<JsonElement> deleteProduct(@Url String url, @Body String code);
 }

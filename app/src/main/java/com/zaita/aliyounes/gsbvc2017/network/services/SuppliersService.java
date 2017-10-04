@@ -20,4 +20,7 @@ public interface SuppliersService {
 
     @POST
     Observable<JsonElement> addSupplier(@Url String url, @Body Supplier supplier);
+
+    @POST
+    Observable<JsonElement> deleteSupplier(@Url String url, @Body String code);
 }

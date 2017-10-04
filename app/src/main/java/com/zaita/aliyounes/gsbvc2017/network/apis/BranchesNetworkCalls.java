@@ -58,4 +58,16 @@ public class BranchesNetworkCalls {
                     }
                 }).observeOn(AndroidSchedulers.mainThread());
     }
+
+    public static Observable<Boolean> deleteBranch(String code) {
+        BranchesService service = ServiceGenerator.createService(BranchesService.class);
+        return service.deleteBranch(UrlManager.deleteBranchURL() , code)
+                .flatMap(new Function<JsonElement, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> apply(JsonElement jsonElement) throws Exception {
+                        Log.i("delete Branch" , "JSON: "+jsonElement);
+                        return Observable.just(true);
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
 }

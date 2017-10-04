@@ -8,6 +8,7 @@ public class Availability {
     public String brand;
     public String product;
     public int quantity;
+    public boolean isRemoving = false;
 
     public Availability(String brand, String product, int quantity) {
         this.brand = brand;

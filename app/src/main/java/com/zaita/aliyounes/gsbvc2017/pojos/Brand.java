@@ -17,6 +17,7 @@ public class Brand {
     private boolean StatusBrd;
     private String CreationDateBrd;
     private String CreationUserBrd;
+    private boolean isRemoving = false;
 
     public Brand(String name) { //Constructor for dummy brands
         this.NameBrd = name;
@@ -64,6 +65,14 @@ public class Brand {
 
     public void setCreationUserBrd(String creationUserBrd) {
         CreationUserBrd = creationUserBrd;
+    }
+
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    public void setRemoving(boolean removing) {
+        isRemoving = removing;
     }
 
     public static class BrandsListParser {

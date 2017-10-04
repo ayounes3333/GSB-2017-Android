@@ -60,6 +60,7 @@
             android:layout_alignParentEnd="true"
             android:text="@string/button_undo"
             android:textAllCaps="true"
+            android:visibility="gone"
             android:textColor="@android:color/white"
             android:layout_alignParentRight="true" />
     </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.zaita.aliyounes.gsbvc2017.activities;
 
+import android.app.Dialog;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -92,7 +93,10 @@ public class AjouteSupplierActivity extends AppCompatActivity {
     }
 
     private void addSupplier() {
-
+        final Dialog pd = new Dialog(this);
+        pd.setCancelable(false);
+        pd.setContentView(R.layout.adding_loading_popup);
+        pd.show();
         Supplier supplier= new Supplier();
         if( textInput_nom.getEditText()          != null &&
                 textInput_email.getEditText()    != null &&

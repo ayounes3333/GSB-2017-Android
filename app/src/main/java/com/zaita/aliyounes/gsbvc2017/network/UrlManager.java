@@ -77,6 +77,47 @@ public class UrlManager {
         Log.i("Delete Brand URL" , uri.toString());
         return uri.toString();
     }
+
+    public static String deleteBranchURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Branch")
+                .appendPath("delete")
+                .build();
+        Log.i("Delete Branch URL" , uri.toString());
+        return uri.toString();
+    }
+
+    public static String deleteClientURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Client")
+                .appendPath("delete")
+                .build();
+        Log.i("Delete Client URL" , uri.toString());
+        return uri.toString();
+    }
+
+    public static String deleteProductURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Product")
+                .appendPath("delete")
+                .build();
+        Log.i("Delete Product URL" , uri.toString());
+        return uri.toString();
+    }
+
+    public static String deleteSupplierURL() {
+        Uri uri = Uri.parse(BASE_URL_API)
+                .buildUpon()
+                .appendPath("Supplier")
+                .appendPath("delete")
+                .build();
+        Log.i("Delete Supplier URL" , uri.toString());
+        return uri.toString();
+    }
+
     public static String getAllProductsURL() {
         Uri uri = Uri.parse(BASE_URL_API)
                 .buildUpon()

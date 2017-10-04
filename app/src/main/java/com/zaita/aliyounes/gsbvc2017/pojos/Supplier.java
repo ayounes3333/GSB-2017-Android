@@ -22,6 +22,7 @@ public class Supplier {
     private String CountrySup;
     private String CreationDateSup;
     private String CreationUserSup;
+    private boolean isRemoving = false;
 
     //Constructor for dummy suppliers
     public Supplier(String emailSup, String telSup, String nameSup, String mobSup, String addressSup) {
@@ -128,6 +129,14 @@ public class Supplier {
 
     public void setCreationUserSup(String creationUserSup) {
         CreationUserSup = creationUserSup;
+    }
+
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    public void setRemoving(boolean removing) {
+        isRemoving = removing;
     }
 
 

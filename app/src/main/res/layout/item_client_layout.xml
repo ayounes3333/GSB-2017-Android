@@ -93,7 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_tel_titre"
+                android:id="@+id/textView_telClient_titre"
                 android:text="@string/telephone_client"
                 android:layout_below="@+id/textView_email_titre"
                 android:layout_marginLeft="16dp"
@@ -105,15 +105,15 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_below="@+id/textView_emailClient"
-                android:layout_toRightOf="@+id/textView_tel_titre"
-                android:layout_toEndOf="@+id/textView_tel_titre"/>
+                android:layout_toRightOf="@+id/textView_telClient_titre"
+                android:layout_toEndOf="@+id/textView_telClient_titre"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_mobile_titre"
+                android:id="@+id/textView_mobileClient_titre"
                 android:text="@string/mobile_client"
-                android:layout_below="@+id/textView_tel_titre"
+                android:layout_below="@+id/textView_telClient_titre"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
             <TextView
@@ -123,15 +123,15 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_below="@+id/textView_telClient"
-                android:layout_toRightOf="@+id/textView_mobile_titre"
-                android:layout_toEndOf="@+id/textView_mobile_titre"/>
+                android:layout_toRightOf="@+id/textView_mobileClient_titre"
+                android:layout_toEndOf="@+id/textView_mobileClient_titre"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_adr_client_titre"
+                android:id="@+id/textView_adrClient_titre"
                 android:text="@string/adresse_client"
-                android:layout_below="@+id/textView_mobile_titre"
+                android:layout_below="@+id/textView_mobileClient_titre"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"/>
             <TextView
@@ -141,10 +141,22 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_below="@id/textView_mobileClient"
-                android:layout_toRightOf="@+id/textView_adr_client_titre"
-                android:layout_toEndOf="@+id/textView_adr_client_titre"/>
+                android:layout_toRightOf="@+id/textView_adrClient_titre"
+                android:layout_toEndOf="@+id/textView_adrClient_titre"/>
         </RelativeLayout>
-
+        <Button
+            android:id="@+id/undo_button"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/button_undo"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

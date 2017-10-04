@@ -1,5 +1,6 @@
 package com.zaita.aliyounes.gsbvc2017.activities;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -102,7 +103,10 @@ public class AjouteClientActivity extends AppCompatActivity {
     }
 
     private void addClient() {
-        //TODO: implement API call
+        final Dialog pd = new Dialog(this);
+        pd.setCancelable(false);
+        pd.setContentView(R.layout.adding_loading_popup);
+        pd.show();
         Client client = new Client();
         if( textInput_nom.getEditText()          != null &&
                 textInput_email.getEditText()    != null &&

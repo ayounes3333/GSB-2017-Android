@@ -21,4 +21,7 @@ public interface ClientsService {
 
     @POST
     Observable<JsonElement> addClient(@Url String url , @Body Client client);
+
+    @POST
+    Observable<JsonElement> deleteClient(@Url String url, @Body String code);
 }

@@ -22,6 +22,7 @@ public class Client {
     private String EmailClt;
     private String StatusClt;
     private boolean SendSms;
+    private boolean isRemoving = false;
     private String CreationDateClt;
     private String CreationUserClt;
 
@@ -132,6 +133,14 @@ public class Client {
 
     public void setCreationUserClt(String creationUserClt) {
         CreationUserClt = creationUserClt;
+    }
+
+    public boolean isRemoving() {
+        return isRemoving;
+    }
+
+    public void setRemoving(boolean removing) {
+        isRemoving = removing;
     }
 
     public static class ClientsListParser {

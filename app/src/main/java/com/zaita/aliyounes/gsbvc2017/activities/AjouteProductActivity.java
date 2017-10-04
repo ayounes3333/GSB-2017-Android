@@ -1,5 +1,6 @@
 package com.zaita.aliyounes.gsbvc2017.activities;
 
+import android.app.Dialog;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
-import com.zaita.aliyounes.gsbvc2017.network.apis.PoductsNetworkCalls;
+import com.zaita.aliyounes.gsbvc2017.network.apis.ProductsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.network.datamodels.Product;
 
 import java.io.IOException;
@@ -111,7 +112,10 @@ public class AjouteProductActivity extends AppCompatActivity {
 
 
     private void addProduct() {
-        //TODO: implement API call
+        final Dialog pd = new Dialog(this);
+        pd.setCancelable(false);
+        pd.setContentView(R.layout.adding_loading_popup);
+        pd.show();
         Product product = new Product();
         if( textInput_nom.getEditText()          != null &&
                 textInput_cost.getEditText()     != null &&
@@ -134,7 +138,7 @@ public class AjouteProductActivity extends AppCompatActivity {
 
 
             //Call the API
-            PoductsNetworkCalls.addProduct(product).subscribe(new Observer<Boolean>() {
+            ProductsNetworkCalls.addProduct(product).subscribe(new Observer<Boolean>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                     compositeDisposable.add(d);

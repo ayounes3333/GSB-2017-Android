@@ -1,5 +1,7 @@
 package com.zaita.aliyounes.gsbvc2017.activities;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,10 +60,12 @@ public class AjouteBbrandActivity extends AppCompatActivity {
 
 
     private void addBrand() {
-        //TODO: implement API call
-
+        final Dialog pd = new Dialog(this);
+        pd.setCancelable(false);
+        pd.setContentView(R.layout.adding_loading_popup);
+        pd.show();
         Brand brand= new Brand();
-        if( textInput_nom.getEditText()          != null ) {
+        if( textInput_nom.getEditText() != null ) {
             brand.setBrdName(textInput_nom.getEditText().getText().toString());
 
 
@@ -78,6 +82,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
                     //In this case it is the brand ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Brand" , "Brand added successfully");
+                    pd.dismiss();
                     Toast.makeText(AjouteBbrandActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteBbrandActivity.this.finish();
                 }
@@ -86,6 +91,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
                 @Override
                 public void onError(Throwable e) {
                     Log.e("Add Brand" , "Error adding new Brand" , e);
+                    pd.dismiss();
                     if(e instanceof SocketException || e instanceof IOException) {
                         Toast.makeText(AjouteBbrandActivity.this , R.string.no_internet , Toast.LENGTH_SHORT).show();
                     } else if (e instanceof Exception) {
