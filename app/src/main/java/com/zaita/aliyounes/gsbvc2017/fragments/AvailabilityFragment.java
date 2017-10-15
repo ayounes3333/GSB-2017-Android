@@ -74,6 +74,8 @@ public class AvailabilityFragment extends Fragment {
         relativeLayout_noInternet  = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noInternet);
         relativeLayout_serverError = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_serverError);
         relativeLayout_noData      = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_noAvailabilities);
+        //TODO: Remove when API implemented!
+        relativeLayout_noData.setVisibility(View.VISIBLE);
         setupRecyclerView();
     }
 
@@ -324,16 +326,9 @@ public class AvailabilityFragment extends Fragment {
         dummyAvailabilities.add(new Availability("Branch 6" , "Product 6" , 123));
         return dummyAvailabilities;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-    }
-
     @Override
     public void onDestroy() {
-        super.onDestroy();
         compositeDisposable.dispose();
+        super.onDestroy();
     }
 }

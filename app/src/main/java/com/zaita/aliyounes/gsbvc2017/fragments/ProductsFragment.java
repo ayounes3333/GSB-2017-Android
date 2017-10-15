@@ -332,15 +332,8 @@ public class ProductsFragment extends Fragment {
         return dummyProducts;
     }
     @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-        fetchProducts();
-    }
-
-    @Override
     public void onDestroy() {
-        super.onDestroy();
         compositeDisposable.dispose();
+        super.onDestroy();
     }
 }

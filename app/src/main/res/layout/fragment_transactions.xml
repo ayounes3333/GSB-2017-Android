@@ -9,7 +9,9 @@
         android:id="@+id/nestedScrollView_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button_ajouter">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,72 +32,79 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/spinner_Brcode"
+            <LinearLayout
+                android:id="@+id/linearLayout_branch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:layout_below="@+id/textView_titre"
-                android:layout_marginEnd="32dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@+id/spinner_Brcode_titre"
-                android:layout_toRightOf="@+id/spinner_Brcode_titre"/>
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-            <TextView
-                android:id="@+id/spinner_Brcode_titre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView_titre"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/branch"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/spinner_Brcode_titre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/branch"
+                    android:textSize="16sp"
+                    android:layout_weight="2" />
+                <Spinner
+                    android:id="@+id/spinner_Brcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="2"/>
 
+            </LinearLayout>
 
-
-
-            <Spinner
-                android:id="@+id/spinner_Trcode"
+            <LinearLayout
+                android:id="@+id/linearLayout_Trcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spinner_Brcode"
-                android:layout_marginEnd="32dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@+id/spinner_Trcode_Titre"
-                android:layout_toRightOf="@+id/spinner_Trcode_Titre"
-                android:entries="@array/spinner_Transaction"/>
+                android:gravity="center_vertical"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_below="@+id/linearLayout_branch"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-            <TextView
-                android:id="@+id/spinner_Trcode_Titre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/spinner_Brcode_titre"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/transaction_code"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/spinner_Trcode_Titre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/transaction_code"
+                    android:textSize="16sp"
+                    android:layout_weight="2" />
+                <Spinner
+                    android:id="@+id/spinner_Trcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="2"/>
 
-
+            </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/OrdDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spinner_Trcode"
+                android:layout_below="@+id/linearLayout_Trcode"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:hint="Transaction Date">
 
                 <EditText
@@ -109,40 +118,42 @@
                     android:ems="10"
                     android:inputType="date" />
             </android.support.design.widget.TextInputLayout>
-
-            <Spinner
-                android:id="@+id/spinner_Prcode"
+            <LinearLayout
+                android:id="@+id/linearLayout_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:layout_below="@+id/OrdDate"
-                android:layout_marginEnd="32dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@+id/spinner_Prcode_titre"
-                android:layout_toRightOf="@+id/spinner_Prcode_titre"/>
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-            <TextView
-                android:id="@+id/spinner_Prcode_titre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/OrdDate"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/product"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/spinner_Prcode_titre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/product"
+                    android:textSize="16sp"
+                    android:layout_weight="2" />
+                <Spinner
+                    android:id="@+id/spinner_Prcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="2"/>
 
-
-
-
+            </LinearLayout>
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/OrdQty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spinner_Prcode"
+                android:layout_below="@+id/linearLayout_product"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -161,7 +172,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:hint="Achat">
 
                 <EditText

@@ -39,28 +39,21 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout_fragment_container,
-                        new BranchesFragment(),
-                        BranchesFragment.TAG)
+                        new ClientsFragment(),
+                        ClientsFragment.TAG)
                 .commit();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this , AjouteBranchActivity.class));
+                startActivity(new Intent(MainActivity.this , AjouteClientActivity.class));
 
             }
         });
         if(getSupportActionBar() != null)
-            getSupportActionBar().setTitle(R.string.branches);
+            getSupportActionBar().setTitle(R.string.clients);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

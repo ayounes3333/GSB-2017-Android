@@ -132,7 +132,7 @@ public class AjouteClientActivity extends AppCompatActivity {
                     //Value is the return of the API call
                     //In this case it is the client ID
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
-                    Log.i("Add Client" , "Client "+value+" added successfully");
+                    Log.i("Add Client" , "Client added successfully");
                     Toast.makeText(AjouteClientActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteClientActivity.this.finish();
                 }
@@ -157,19 +157,7 @@ public class AjouteClientActivity extends AppCompatActivity {
     }
     @Override
     public void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
     }
 }

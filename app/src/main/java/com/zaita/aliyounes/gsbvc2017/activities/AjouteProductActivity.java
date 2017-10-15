@@ -48,6 +48,7 @@ public class AjouteProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_product);
+        compositeDisposable  = new CompositeDisposable();
         setupViews();
     }
     private void setupViews() {
@@ -147,9 +148,9 @@ public class AjouteProductActivity extends AppCompatActivity {
                 @Override
                 public void onNext(Boolean value) {
                     //Value is the return of the API call
-                    //In this case it is the client ID
-                    //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
-                    Log.i("Add Product" , "Product "+value+" added successfully");
+                    //In this case it is the Product ID
+                    //For more info see Mohammad faour's code (ManagedObjects/productController.java)
+                    Log.i("Add Product" , "Product added successfully");
                     Toast.makeText(AjouteProductActivity.this , "Product added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteProductActivity.this.finish();
                 }
@@ -174,19 +175,7 @@ public class AjouteProductActivity extends AppCompatActivity {
     }
     @Override
     public void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
     }
 }

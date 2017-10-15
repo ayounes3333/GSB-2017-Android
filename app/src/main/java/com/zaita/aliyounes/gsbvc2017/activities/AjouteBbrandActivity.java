@@ -29,6 +29,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        compositeDisposable  = new CompositeDisposable();
         setContentView(R.layout.activity_ajouter_brand);
         setupViews();
     }
@@ -83,7 +84,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
                     //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
                     Log.i("Add Brand" , "Brand added successfully");
                     pd.dismiss();
-                    Toast.makeText(AjouteBbrandActivity.this , "Client added successfully" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AjouteBbrandActivity.this , "Brand added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteBbrandActivity.this.finish();
                 }
 
@@ -108,19 +109,7 @@ public class AjouteBbrandActivity extends AppCompatActivity {
     }
     @Override
     public void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
     }
 }

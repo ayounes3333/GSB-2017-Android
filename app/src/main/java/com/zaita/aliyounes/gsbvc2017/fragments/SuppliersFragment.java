@@ -335,12 +335,6 @@ public class SuppliersFragment extends Fragment {
         dummySuppliers.add(new Supplier("supplier1@example.com" , "00961 1 123 456" , "Supplier 6" , "+961 78 912 345" , "Beirut - Adr 6"));
         return dummySuppliers;
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-        fetchSuppliers();
-    }
 
     @Override
     public void onDestroy() {

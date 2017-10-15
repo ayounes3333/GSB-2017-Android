@@ -16,7 +16,7 @@
     <string name="permission_rationale">"Les autorisations de contacts sont nécessaires pour fournir des compléments d'email."</string>
 
     //ajouter_client
-    <string name="ajouter_client_titre">Ajouter un ID</string>
+    <string name="ajouter_client_titre">Ajouter un Client</string>
     <string name="ajouter_client_nom">Nom</string>
     <string name="ajouter_client_email">Email</string>
     <string name="ajouter_client_mobile">Mobile</string>
@@ -105,4 +105,9 @@
     <string name="deleting">Deleting...</string>
     <string name="supplier_telephone">Supplier Telephone</string>
     <string name="loading">Loading..</string>
+    <string name="ajouter_client">Ajouter Client</string>
+    <string name="type_de_produit">Type De Produit</string>
+    <string name="from_branch">From Branch</string>
+    <string name="transfer_code">Transfer Code</string>
+    <string name="to_branch">TO Branch</string>
 </resources>

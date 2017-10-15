@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         textInput_AdrUsr        = (TextInputLayout) findViewById(R.id.textInput_AdrUsr);
         textView_Password1      = (TextInputLayout) findViewById(R.id.textView_Password1);
         textView_Password2      = (TextInputLayout) findViewById(R.id.textView_Password2);
-        spinner_branch          = (Spinner) findViewById(R.id.spinner_Branch);
+        spinner_branch          = (Spinner) findViewById(R.id.spinner_branch);
 
         Button button_register = (Button) findViewById(R.id.button_ajouter);
 

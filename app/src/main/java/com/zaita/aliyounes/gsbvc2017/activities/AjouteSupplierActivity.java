@@ -34,6 +34,7 @@ public class AjouteSupplierActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_supplier);
+        compositeDisposable  = new CompositeDisposable();
         setupViews();
     }
     private void setupViews() {
@@ -121,7 +122,7 @@ public class AjouteSupplierActivity extends AppCompatActivity {
                 public void onNext(Boolean value) {
                     //Value is the return of the API call
                     //In this case it is the Supplier ID
-                    //For more info see Mohammad faour's code (ManagedObjects/ClientController.java)
+                    //For more info see Mohammad faour's code (ManagedObjects/SuppliersController.java)
                     Log.i("Add Supplier" , "Supplier added successfully");
                     Toast.makeText(AjouteSupplierActivity.this , "Supplier "+value+" added successfully" , Toast.LENGTH_SHORT).show();
                     AjouteSupplierActivity.this.finish();
@@ -147,19 +148,7 @@ public class AjouteSupplierActivity extends AppCompatActivity {
     }
     @Override
     public void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
     }
 }

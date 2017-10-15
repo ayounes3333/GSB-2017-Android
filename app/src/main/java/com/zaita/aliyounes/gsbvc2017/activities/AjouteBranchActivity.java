@@ -31,6 +31,7 @@ public class AjouteBranchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        compositeDisposable  = new CompositeDisposable();
         setContentView(R.layout.activity_ajoute_branch);
         setupViews();
     }
@@ -126,19 +127,7 @@ public class AjouteBranchActivity extends AppCompatActivity {
     }
     @Override
     public void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        compositeDisposable.dispose();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
     }
 }

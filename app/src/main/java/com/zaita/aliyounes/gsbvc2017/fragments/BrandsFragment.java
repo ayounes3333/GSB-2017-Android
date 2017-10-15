@@ -335,16 +335,10 @@ public class BrandsFragment extends Fragment {
         dummyBrands.add(new Brand("Brand 6"));
         return dummyBrands;
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-        fetchBrands();
-    }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         compositeDisposable.dispose();
+        super.onDestroy();
     }
 }

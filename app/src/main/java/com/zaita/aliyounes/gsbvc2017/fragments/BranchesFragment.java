@@ -336,16 +336,10 @@ public class BranchesFragment extends Fragment {
             }
         });
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        compositeDisposable = new CompositeDisposable();
-        fetchBranches();
-    }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         compositeDisposable.dispose();
+        super.onDestroy();
     }
 }
