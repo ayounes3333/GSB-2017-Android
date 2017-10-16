@@ -12,6 +12,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.helpers.SpinnersHelper;
+
+import io.reactivex.disposables.CompositeDisposable;
 
 
 public class InvoicesFragment extends Fragment {
@@ -26,6 +29,7 @@ public class InvoicesFragment extends Fragment {
     private TextInputLayout textInput_Selprice;
     private TextInputLayout textInput_Net;
     private TextInputLayout textInput_Discount;
+    private CompositeDisposable compositeDisposable;
 
     public InvoicesFragment() {
         // Required empty public constructor
@@ -42,6 +46,10 @@ public class InvoicesFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setupViews(view);
+        compositeDisposable = new CompositeDisposable();
+        SpinnersHelper.populateBranchSpinner(getContext() , spinner_Brcode , compositeDisposable);
+        SpinnersHelper.populateProductSpinner(getContext() , spinner_Prcode , compositeDisposable);
+        SpinnersHelper.populateClientSpinner(getContext() , spinner_Client , compositeDisposable);
     }
 
     private void setupViews(View rootView) {
@@ -118,5 +126,11 @@ public class InvoicesFragment extends Fragment {
 
     private void addInvoice() {
         //TODO: implement API call
+    }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.dispose();
+        super.onDestroy();
     }
 }

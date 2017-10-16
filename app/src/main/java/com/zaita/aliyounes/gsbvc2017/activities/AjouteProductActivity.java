@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.helpers.SpinnersHelper;
 import com.zaita.aliyounes.gsbvc2017.network.apis.ProductsNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.network.datamodels.Product;
 
@@ -50,6 +51,8 @@ public class AjouteProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ajouter_product);
         compositeDisposable  = new CompositeDisposable();
         setupViews();
+        SpinnersHelper.populateSupplierSpinner(this , spinner_supplier , compositeDisposable);
+        SpinnersHelper.populateBrandSpinner(this , spinner_brand , compositeDisposable);
     }
     private void setupViews() {
         textInput_nom         = (TextInputLayout) findViewById(R.id.textInput_nom);

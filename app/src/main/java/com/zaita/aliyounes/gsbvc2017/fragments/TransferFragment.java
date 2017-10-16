@@ -13,6 +13,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.helpers.SpinnersHelper;
+
+import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +24,7 @@ public class TransferFragment extends Fragment {
 
     private TextInputLayout textInput_OrdQty;
     private TextInputLayout textInput_OrdDate;
+    private CompositeDisposable compositeDisposable;
     private Spinner spinner_Brcode;
     private Spinner spinner_Prcode;
     private Spinner spinner_Trcode;
@@ -34,6 +38,10 @@ public class TransferFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setupViews(view);
+        compositeDisposable = new CompositeDisposable();
+        SpinnersHelper.populateProductSpinner(getContext() , spinner_Prcode , compositeDisposable);
+        SpinnersHelper.populateBranchSpinner(getContext() , spinner_Brcode , compositeDisposable);
+        SpinnersHelper.populateBranchSpinner(getContext() , spinner_Brcodeto , compositeDisposable);
     }
 
     private void setupViews(View rootView) {
@@ -100,4 +108,9 @@ public class TransferFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_transfer, container, false);
     }
 
+    @Override
+    public void onDestroy() {
+        compositeDisposable.dispose();
+        super.onDestroy();
+    }
 }

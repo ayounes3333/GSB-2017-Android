@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.zaita.aliyounes.gsbvc2017.R;
+import com.zaita.aliyounes.gsbvc2017.helpers.SpinnersHelper;
 import com.zaita.aliyounes.gsbvc2017.network.apis.BranchesNetworkCalls;
 import com.zaita.aliyounes.gsbvc2017.pojos.Branch;
 
@@ -61,7 +62,8 @@ public class TransactionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         compositeDisposable = new CompositeDisposable();
         setupViews(view);
-        populateBranches(); //...
+        SpinnersHelper.populateBranchSpinner(getContext() , spinner_Brcode , compositeDisposable);
+        SpinnersHelper.populateProductSpinner(getContext() , spinner_Prcode , compositeDisposable);
     }
 
     private void setupViews(View rootView) {
@@ -139,40 +141,6 @@ public class TransactionsFragment extends Fragment {
             return true;
         }
         return false;
-    }
-
-    private void populateBranches() {
-        BranchesNetworkCalls.getAllBranches().subscribe(new Observer<List<Branch>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                compositeDisposable.add(d);
-            }
-
-            @Override
-            public void onNext(List<Branch> value) {
-                ArrayList<String> date = new ArrayList<>();
-                for (Branch branch : value) {
-                    date.add(String.valueOf(branch.getCodeBr()));
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, date);
-                spinner_Brcode.setAdapter(adapter);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.e("Get Branches" , "Error getting branches" , e);
-                if(e instanceof SocketException || e instanceof IOException) {
-                    Toast.makeText(getContext() , R.string.no_internet , Toast.LENGTH_SHORT).show();
-                } else if (e instanceof Exception) {
-                    Toast.makeText(getContext() , e.getMessage() , Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
     }
 
     @Override
